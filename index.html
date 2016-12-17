@@ -13,7 +13,7 @@ description: Tangled web dairy of Abdel Raoof
 	</header>
 	<nav>
 		<div class="row">
-			<div class="col-md-2 col-sm-3 col-xs-6">
+			<div class="col-md-4 col-sm-3 col-xs-6">
 				<a href="blog/" title="Blog"  class="tile orange">
 					<i class="icon-blog" style="font-size:8em"></i>
 				</a>
@@ -38,11 +38,11 @@ description: Tangled web dairy of Abdel Raoof
 				{% endfor %}
 			</div>
 					
-		</div>
+		</div>		
 
 		<div class="row">
 
-			<!--<div class="col-md-2 col-sm-3 col-xs-6">				
+			<div class="col-md-2 col-sm-3 col-xs-6">				
 
 				<a href="{{site.github}}" title="Github" class="tile darken">
 					<i class="icon-gthb" style="font-size:8em"></i>
@@ -50,17 +50,7 @@ description: Tangled web dairy of Abdel Raoof
 
 			</div>
 			
-			
-
-			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="{{site.stackoverflow}}" title="StackOverflow" class="tile darken" >
-					<i class="icon-skow" style="font-size:8em;color:white"></i>
-				</a>
-			</div>-->
-
-
-
-			<div class="col-md-4 col-sm-6 col-xs-12">
+			<!--<div class="col-md-4 col-sm-6 col-xs-12">
 				{% for post in site.posts %}
 					{% if post.featured == true %}
 					<a href="{{post.url}}" title="Featured Article">
@@ -73,7 +63,7 @@ description: Tangled web dairy of Abdel Raoof
 					{% break %}
 					{% endif %}
 				{% endfor %}
-			</div>
+			</div>-->
 
 			<div class="col-md-2 col-sm-3 col-xs-6">
 				<a href="feed.xml" title="RSS Feed" class="tile orange">
@@ -83,21 +73,16 @@ description: Tangled web dairy of Abdel Raoof
 		</div>
 
 		<div class="row" style="margin-bottom:25px">
-
 			<div class="col-md-2 col-sm-3 col-xs-6">
 				<a href="{{site.twitter}}" title="Twitter" class="tile blue">
 					<i class="icon-twtr" style="font-size:8em"></i>
 				</a>
 			</div>
-
-
-
 			<div class="col-md-2 col-sm-3 col-xs-6">
 				<a href="{{site.linkedin}}" title="LinkedIn" class="tile blue">
 					<i class="icon-lkin" style="font-size:8em"></i>
 				</a>
 			</div>
-
  			<div class="col-md-4 col-sm-6 col-xs-12">
 				<a href="about/" title="About Me">
 					<div class="tile purple profile">
