@@ -14,7 +14,7 @@ description:
 	<nav>
 		<div class="row">
 			<div class="col-md-4 col-sm-3 col-xs-6">
-				<a href="blog/" title="Blog">
+				<a href="blog/" title="Blog" target="_blank">
 					<div class="tile blue">
 						<h3 class="title">Blog</h3>						
 					</div>
@@ -22,7 +22,7 @@ description:
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				{% for post in site.posts limit:1 %}
-				<a href="{{post.url}}" title="Latest Article">
+				<a href="{{post.url}}" title="Latest Article" target="_blank">
 					<div class="tile orange">
 						<h3 class="title">Latest Article</h3>
 						<h4 class="title">{{ post.title }}</h4>
@@ -36,15 +36,15 @@ description:
 		<!--ROW ==> Feeds and other sites-->
 		<div class="row">
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="feed.xml" title="RSS Feed">
+				<a href="feed.xml" title="RSS Feed" target="_blank">
 					<div class="tile magenta">
 						<h3 class="title">RSS feeds</h3>						
 					</div>
 				</a>
 			</div>	
 			<div class="col-md-4 col-sm-3 col-xs-6">
-				<a href="links/" title="Links">
-					<div class="tile blue">
+				<a href="links/" title="Links" target="_blank">
+					<div class="tile magenta">
 						<h3 class="title">Links</h3>						
 					</div>
 				</a>
@@ -54,22 +54,22 @@ description:
 		<!--ROW ==> LINKS-->
 		<div class="row" style="margin-bottom:25px">
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="{{site.github}}" title="Github" class="tile darken">
+				<a href="{{site.github}}" title="Github" class="tile darken" target="_blank">
 					<i class="icon-gthb" style="font-size:8em"></i>					
 				</a>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="{{site.twitter}}" title="Twitter" class="tile blue">
+				<a href="{{site.twitter}}" title="Twitter" class="tile darken" target="_blank">
 					<i class="icon-twtr" style="font-size:8em"></i>
 				</a>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="{{site.linkedin}}" title="LinkedIn" class="tile blue">
+				<a href="{{site.linkedin}}" title="LinkedIn" class="tile darken" target="_blank">
 					<i class="icon-lkin" style="font-size:8em"></i>
 				</a>
 			</div>
  			<div class="col-md-4 col-sm-6 col-xs-12">
-				<a href="about/" title="About Me">
+				<a href="about/" title="About Me" target="_blank">
 					<div class="tile purple profile">
 						<h2 class="title">About</h2>						
 					</div>
