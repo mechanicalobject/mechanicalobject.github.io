@@ -1,0 +1,2 @@
+# mechanicalobject.github.io
+blog
