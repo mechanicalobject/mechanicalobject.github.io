@@ -25,9 +25,10 @@ navigation:
   url: /tags/
 - text: Archive
   url : /archive/
-#- text: Search
-#  url: /search/
-
+- text: Search
+  url: /search/
+- text: Links
+  url: /links/
 
 # Author Details
 author:         'Evrim'

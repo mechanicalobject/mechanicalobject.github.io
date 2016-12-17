@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Home
-description: Tangled web dairy of Abdel Raoof
+description: 
 ---
 
 <div class="container">
@@ -14,65 +14,50 @@ description: Tangled web dairy of Abdel Raoof
 	<nav>
 		<div class="row">
 			<div class="col-md-4 col-sm-3 col-xs-6">
-				<a href="blog/" title="Blog"  class="tile orange">
-					<i class="icon-blog" style="font-size:8em"></i>
+				<a href="blog/" title="Blog">
+					<div class="tile blue">
+						<h3 class="title">Blog</h3>						
+					</div>
 				</a>
 			</div>
-
-			<!--<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="resume/" title="Resume" class="tile red">
-					<i class="icon-rems" style="font-size:8em"></i>
-				</a>
-			</div>-->
-			
-
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				{% for post in site.posts limit:1 %}
 				<a href="{{post.url}}" title="Latest Article">
-					<div class="tile red">
+					<div class="tile orange">
 						<h3 class="title">Latest Article</h3>
 						<h4 class="title">{{ post.title }}</h4>
 						<p> {{ post.content | strip_html | truncatewords: 10 }}</p>
 					</div>
 				</a>
 				{% endfor %}
-			</div>
-					
+			</div>					
 		</div>		
 
+		<!--ROW ==> Feeds and other sites-->
 		<div class="row">
-
-			<div class="col-md-2 col-sm-3 col-xs-6">				
-
-				<a href="{{site.github}}" title="Github" class="tile darken">
-					<i class="icon-gthb" style="font-size:8em"></i>
-				</a>
-
-			</div>
-			
-			<!--<div class="col-md-4 col-sm-6 col-xs-12">
-				{% for post in site.posts %}
-					{% if post.featured == true %}
-					<a href="{{post.url}}" title="Featured Article">
-						<div class="tile orange">
-							<h3 class="title">Featured Article</h3>
-							<h4 class="title">{{ post.title }}</h4>
-							<p> {{ post.content | strip_html | truncatewords: 10 }}</p>
-						</div>
-					</a>
-					{% break %}
-					{% endif %}
-				{% endfor %}
-			</div>-->
-
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="feed.xml" title="RSS Feed" class="tile orange">
-					<i class="icon-rss" style="font-size:8em"></i>
+				<a href="feed.xml" title="RSS Feed">
+					<div class="tile magenta">
+						<h3 class="title">RSS feeds</h3>						
+					</div>
+				</a>
+			</div>	
+			<div class="col-md-4 col-sm-3 col-xs-6">
+				<a href="links/" title="Links">
+					<div class="tile blue">
+						<h3 class="title">Links</h3>						
+					</div>
 				</a>
 			</div>	
 		</div>
 
+		<!--ROW ==> LINKS-->
 		<div class="row" style="margin-bottom:25px">
+			<div class="col-md-2 col-sm-3 col-xs-6">
+				<a href="{{site.github}}" title="Github" class="tile darken">
+					<i class="icon-gthb" style="font-size:8em"></i>					
+				</a>
+			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6">
 				<a href="{{site.twitter}}" title="Twitter" class="tile blue">
 					<i class="icon-twtr" style="font-size:8em"></i>
@@ -86,8 +71,7 @@ description: Tangled web dairy of Abdel Raoof
  			<div class="col-md-4 col-sm-6 col-xs-12">
 				<a href="about/" title="About Me">
 					<div class="tile purple profile">
-						<h2 class="title">About Me</h2>
-						<p>Hello World, I am {{site.author}}.</p>
+						<h2 class="title">About</h2>						
 					</div>
 				</a>
 		    </div>
