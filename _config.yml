@@ -7,10 +7,10 @@ highlighter: pygments
 permalink:        /blog/:year/:month/:day/:title
 
 # Setup
-title:            'Abdel Raoof'
-tagline:          'Tangled web dairy of Abdel Raoof'
-description:      'This is personal site of Abdel Raoof Olakara'
-url:              'http://abdelraoof.com'
+title:            'Mechanical Object'
+tagline:          'Software like clockwork...'
+description:      'Programming, algorithms, life etc.'
+url:              'http://mechanicalobject.com'
 baseurl:          ''
 
 # Navigation
@@ -30,30 +30,30 @@ navigation:
 
 
 # Author Details
-author:         'Abdel Raoof Olakara'
+author:         'Evrim'
 
 #Social Media links (Use complete URL except for email)
 dribbble:
 email:
-facebook:       'https://www.facebook.com/olakara'
+facebook:       
 flickr:
-github:         'https://github.com/olakara'
-gplus:          'https://plus.google.com/100425464897246255887/'
+github:         'https://github.com/mechanicalobject'
+gplus:          
 instagram:
 pinterest:
-linkedin:       'https://ae.linkedin.com/in/olakara/'
+linkedin:       'https://ae.linkedin.com/in/senturkevrim/'
 rss:
-stackoverflow:  'http://stackoverflow.com/users/185655/abdel-raoof'
-twitter:        'https://twitter.com/olakara'
+stackoverflow:  
+twitter:        'https://twitter.com/mechanicalo'
 
 # Google Analytics
-gahandler: 'UA-53220404-1'
+gahandler: 'UA-57545242-2'
 
 #if footersvg is 'true' the social media links will be shown top on the copy right in the footer
 footersvg: 'true'
 
 # Disqus
-disqushandler: 'abdelraoof'
+disqushandler: 'mechanicalobject'
 
 # Blog Configurations
 paginate: 10 # Posts per page on the blog index
