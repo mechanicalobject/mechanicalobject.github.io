@@ -11,6 +11,7 @@ title:            'Mechanical Object'
 tagline:          'Software like clockwork...'
 description:      'Programming, algorithms, life etc.'
 url:              'http://mechanicalobject.com'
+#url:              'http://127.0.0.1:4000/'
 baseurl:          ''
 
 # Navigation
@@ -25,8 +26,8 @@ navigation:
   url: /tags/
 - text: Archive
   url : /archive/
-- text: Search
-  url: /search/
+# - text: Search
+#   url: /search/
 - text: Links
   url: /links/
 

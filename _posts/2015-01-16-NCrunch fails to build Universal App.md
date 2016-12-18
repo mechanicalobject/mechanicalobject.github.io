@@ -11,15 +11,8 @@ Sometimes tools that I am using fail and I don't want to dig further _- not that
 
 <!--more-->
 
-I am like : 
-
-[![ncrunch - I just wanna go home](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/ncrunch-I-just-wanna-go-home.png)](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/ncrunch-I-just-wanna-go-home.png)
-
-And when I find a viable answer , I am like : 
-
-[![ncrunch-home home sweet home](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/ncrunch-home-home-sweet-home-.png)](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/ncrunch-home-home-sweet-home-.png)
-
-On my universal app, compilation was ok on visual studio but Ncrunch wasn't able to compile it. Strange. I have a billion other things to do , really the timing of this compilation error was chaotic. I search and I find [the comment of a fellow named **REMCO**](http://forum.ncrunch.net/yaf_postst1241_NCrunch-Failing-to-comple--Windows-and--WindowsPhone-projects-inside-Universal-Application-solution.aspx) :
+On my universal app, compilation was ok on visual studio but Ncrunch wasn't able to compile it. Strange. I have a billion other things to do , really the timing of this compilation error was chaotic. 
+I search and I find <a href="http://forum.ncrunch.net/yaf_postst1241_NCrunch-Failing-to-comple--Windows-and--WindowsPhone-projects-inside-Universal-Application-solution.aspx" target="_blank">the comment of a fellow named **REMCO**</a> :
 
 
 > This problem seems to be related to how the template shares the App.xaml file between projects in the solution.
@@ -46,12 +39,22 @@ On my universal app, compilation was ok on visual studio but Ncrunch wasn't able
 >```
 >Replace this with:
 
->```xml
 ><ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
 ><SubType>Designer</SubType>
 ><Link>App.xaml</Link>
 ></ApplicationDefinition>
->```
+
+{% highlight ruby linenos %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
+
+hello work
+
+idsdisjdisjdisjdisjd
+
 
 >Then reset the NCrunch engine. The projects should now build correctly.
 
