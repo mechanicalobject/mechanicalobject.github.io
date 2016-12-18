@@ -39,22 +39,12 @@ I search and I find <a href="http://forum.ncrunch.net/yaf_postst1241_NCrunch-Fai
 >```
 >Replace this with:
 
+{% highlight xml linenos %}
 ><ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
 ><SubType>Designer</SubType>
 ><Link>App.xaml</Link>
 ></ApplicationDefinition>
-
-{% highlight ruby linenos %}
-def foo
-  puts 'foo'
-end
 {% endhighlight %}
-
-
-hello work
-
-idsdisjdisjdisjdisjd
-
 
 >Then reset the NCrunch engine. The projects should now build correctly.
 
