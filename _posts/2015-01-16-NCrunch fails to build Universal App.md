@@ -22,14 +22,18 @@ I search and I find <a href="http://forum.ncrunch.net/yaf_postst1241_NCrunch-Fai
 
 {% highlight xml %}
 
-<GeneratedXamlSrc0 Condition="'%(AllProjectXamlPages.Link)'==''" Include="@(AllProjectXamlPages->'$(XamlGeneratedOutputPath)%(Identity)')" />
+<GeneratedXamlSrc0 Condition="'%(AllProjectXamlPages.Link)'==''" 
+                   Include="@(AllProjectXamlPages->'$(XamlGeneratedOutputPath)%(Identity)')" 
+/>
 
 {% endhighlight %}
 
 >App.xaml has its file path specified differently because it is a solution-level item 
 
 {% highlight xml linenos %}
+
 ("$(MSBuildThisFileDirectory)App.xaml")
+
 {% endhighlight %}
 
 >The easiest way to solve this problem is to specify a link attribute for the App.xaml file inside the HubApp.Shared.projitems build target file, in the HubApp.Shared directory. This will override the faulty logic and specify a relative path that works correctly with the XAML copying build step. Inside the .projitems file you'll find the following code:
@@ -37,7 +41,7 @@ I search and I find <a href="http://forum.ncrunch.net/yaf_postst1241_NCrunch-Fai
 {% highlight xml linenos %}
 
 <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
-<SubType>Designer</SubType>
+    <SubType>Designer</SubType>
 </ApplicationDefinition>
 
 {% endhighlight %}
@@ -47,8 +51,8 @@ Replace this with:
 {% highlight xml linenos %}
 
 <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
-<SubType>Designer</SubType>
-<Link>App.xaml</Link>
+    <SubType>Designer</SubType>
+    <Link>App.xaml</Link>
 </ApplicationDefinition>
 
 {% endhighlight %}
