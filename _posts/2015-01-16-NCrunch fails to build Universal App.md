@@ -20,30 +20,37 @@ I search and I find <a href="http://forum.ncrunch.net/yaf_postst1241_NCrunch-Fai
 
 >The problem seems to be caused in line 441 of Microsoft.Windows.UI.Xaml.Common.Targets, where the XAML source/destination aren't taking into account the absolute file path being specified for App.xaml:
 
->```xml
-><GeneratedXamlSrc0 Condition="'%(AllProjectXamlPages.Link)'==''" Include="@(AllProjectXamlPages->'$(XamlGeneratedOutputPath)%(Identity)')" />
->```
+{% highlight xml %}
+
+<GeneratedXamlSrc0 Condition="'%(AllProjectXamlPages.Link)'==''" Include="@(AllProjectXamlPages->'$(XamlGeneratedOutputPath)%(Identity)')" />
+
+{% endhighlight %}
 
 >App.xaml has its file path specified differently because it is a solution-level item 
 
->```
->("$(MSBuildThisFileDirectory)App.xaml")
->```
+{% highlight xml linenos %}
+("$(MSBuildThisFileDirectory)App.xaml")
+{% endhighlight %}
 
 >The easiest way to solve this problem is to specify a link attribute for the App.xaml file inside the HubApp.Shared.projitems build target file, in the HubApp.Shared directory. This will override the faulty logic and specify a relative path that works correctly with the XAML copying build step. Inside the .projitems file you'll find the following code:
 
->```xml
-><ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
-><SubType>Designer</SubType>
-></ApplicationDefinition>
->```
->Replace this with:
+{% highlight xml linenos %}
+
+<ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+<SubType>Designer</SubType>
+</ApplicationDefinition>
+
+{% endhighlight %}
+
+Replace this with:
 
 {% highlight xml linenos %}
-><ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
-><SubType>Designer</SubType>
-><Link>App.xaml</Link>
-></ApplicationDefinition>
+
+<ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+<SubType>Designer</SubType>
+<Link>App.xaml</Link>
+</ApplicationDefinition>
+
 {% endhighlight %}
 
 >Then reset the NCrunch engine. The projects should now build correctly.
