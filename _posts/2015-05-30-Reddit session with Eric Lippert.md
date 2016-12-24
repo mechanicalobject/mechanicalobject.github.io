@@ -7,4 +7,6 @@ tagline: Videos
 tags: [c#, .net, eric lippert,reddit]
 published : true
 ---
-Worth reading :) <a href="http://www.reddit.com/r/programmerchat/comments/37qwmm/i_am_eric_lippert_a_software_developer/" target="_blank">Reddit session with Eric Lippert</a>
+Worth reading :) 
+
+[Reddit session with Eric Lippert](http://www.reddit.com/r/programmerchat/comments/37qwmm/i_am_eric_lippert_a_software_developer/){:target="_blank"}

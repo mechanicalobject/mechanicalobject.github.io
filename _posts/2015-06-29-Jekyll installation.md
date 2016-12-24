@@ -7,13 +7,55 @@ tagline:
 tags: [jekyll, blog, github pages]
 published : true
 ---
-The article I used to build my blog on github pages : <a href="http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/" target="_blank">Build A Blog With Jekyll And GitHub Pages</a>
+The article I used to build my blog on github pages : 
+[Build A Blog With Jekyll And GitHub Pages](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/){:target="_blank"}
 
-Some key commands that I always use and forget :)
+## Useful commands
+* ``` jekyll serve --watch ```
+* ``` bundle install ``` 
+* ``` jekyll serve --watch --incremental ``` 
+* ``` bundle exec jekyll serve --watch --incremental ``` 
+* ``` bundle update ``` 
+* ``` bundle exec jekyll serve ``` 
+* ``` bundle clean --force ``` 
 
-* Site up ``` jekyll serve --watch ```
-* Local link to visualize the web site : <a href="http://localhost:4000/" target="_blank">Local jekyll site</a>
+## Useful shorcuts
 
+### Create a link that opens on another tab 
+{% highlight md %}
 
+[Title of the link](link){:target="_blank"} 
 
+{% endhighlight %}
 
+### Localhost link
+ [http://localhost:4000/](http://localhost:4000/){:target="_blank"}
+### To create links between posts 
+
+{% highlight md %}
+{% raw %}
+[Name of Link]({{ site.baseurl}} {% post_url 2015-01-09-Working-with-SQLite-on-DotNet-3 %}){:target="_blank"}
+{% endraw %}
+{% endhighlight %}
+
+### To highlight code blocks
+
+{% highlight md %}
+{% raw %}
+{% highlight csharp linenos%}
+// put your code here... 
+{% endhighlight %}
+{% endraw %}
+{% endhighlight %}
+
+### To display the text as it is by escaping all
+
+{% highlight liquid %}
+{% raw %}
+{% raw %}
+// the text that you want to display as it is goes here...
+{% {% endraw %}endraw %}{% raw %}
+{% endraw %}
+{% endhighlight %}
+
+For more information, you can take a look at [this markdown file.](https://raw.githubusercontent.com/SLaks/SLaks.Blog/gh-pages/_posts/2013-06-10-jekyll-endraw-in-code.md){:target="_blank"} 

@@ -17,7 +17,8 @@ Here is my model :
 
 <!--more-->
 
-```csharp
+{% highlight csharp linenos %}
+
 public class BlogPostComment : ModelBase
 {
     [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -40,11 +41,14 @@ public class BlogPostComment : ModelBase
 
     public virtual BlogPost BlogPost {get;set;}
 }
-```
+
+{% endhighlight %}
+
 
 I wrote two simple unit tests to test the validation logic in my model
 
-```csharp
+{% highlight csharp linenos %}
+
 [Test]
 [ExpectedException(typeof(ValidationException), ExpectedMessage="The field [Email] is required!")]
 public void EmailIsRequired()
@@ -60,21 +64,26 @@ public void TestInvalidEmail()
     var blogPostComment = new BlogPostComment{CommenterEmail ="mechanical",Content ="testing", CommenterName ="Mechanical"};
     Asert.IsTrue(blogPostComment.IsValid());
 }
-```
 
-That seemed fair to me, I hit the build which was green and re-run the tests and **surprise** 
+{% endhighlight %}
 
-![alt text](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/Test_Email_IsValid_Failed.jpg "Unit test fails with ValidationException message")
+That seemed fair to me, I hit the build which was green and re-run the tests and **surprise**
 
-After a quick search, [I found it](https://connect.microsoft.com/VisualStudio/feedback/details/757298/emailaddress-attribute-is-unable-to-load-error-message-from-resource-mvc) :
+I got a message saying :
+
+![My helpful screenshot]({{ site.url }}/img/2013-02-18-Either-ErrorMessageString-or-ErrorMessageResourceName/Test_Email_IsValid_Failed.jpg){:class="img-responsive"}
+
+After a quick search, these :
+
+* [Link 1](https://connect.microsoft.com/VisualStudio/feedback/details/757298/emailaddress-attribute-is-unable-to-load-error-message-from-resource-mvc){:target="_blank"}
+* [Link 2](https://connect.microsoft.com/VisualStudio/feedback/details/776694/attributes-derived-from-validationattribute-throw-exception-when-used-with-error-messages-in-resource-files){:target="_blank"}
 
 > Posted by Microsoft on 9/18/2012 at 11:02 AM
-> 
-> > This is a known issue with the new data annotation attributes added in .NET 4.5\. To workaround it, explicitly set the ErrorMessage >>property of the attribute to null
+> This is a known issue with the new data annotation attributes added in .NET 4.5\. To workaround it, explicitly set the ErrorMessage >>property of the attribute to null
 
 After having modified the code,
 
-```csharp
+{% highlight csharp linenos %}
 {
     ....
     [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required", ErrorMessage = null)]
@@ -83,6 +92,6 @@ After having modified the code,
     public string CommenterEmail { get; set; }
     ...
 }
-```
+{% endhighlight %}
 
 All was in order.
