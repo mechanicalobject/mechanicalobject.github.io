@@ -7,7 +7,9 @@ tagline:
 tags: [.net, c#, exception, json, programming, serializer, xml]
 published : true
 ---
-[A colleague of mine](http://jounad.developpez.com/) shared with me an interesting case on `DataContractJsonSerializer` and `DataContractSerializer`. The difference between these two classes can be resumed roughly as **"one works with JSON and the other one with XML".** 
+[A colleague of mine](http://jounad.developpez.com/){:target="_blank"} shared with me an 
+interesting case on `DataContractJsonSerializer` and `DataContractSerializer`. The 
+difference between these two classes can be resumed roughly as **"one works with JSON and the other one with XML".** 
 
 <!--more-->
 
@@ -15,14 +17,15 @@ Brief description from MSDN :
 
 | Class name | Description |
 | :-- | :-- |
-| [DataContractJsonSerializer](http://msdn.microsoft.com/en-us/library/system.runtime.serialization.json.datacontractjsonserializer(v=vs.110).aspx) | Serializes objects to the JavaScript Object Notation (JSON) and deserializes JSON data to objects. This class cannot be inherited. |
-| [DataContractSerializer](http://msdn.microsoft.com/en-us/library/system.runtime.serialization.datacontractserializer%28v=vs.110%29.aspx) | Serializes and deserializes an instance of a type into an XML stream or document using a supplied data contract. This class cannot be inherited. |
+| [DataContractJsonSerializer](http://msdn.microsoft.com/en-us/library/system.runtime.serialization.json.datacontractjsonserializer(v=vs.110).aspx){:target="_blank"} | Serializes objects to the JavaScript Object Notation (JSON) and deserializes JSON data to objects. This class cannot be inherited. |
+| [DataContractSerializer](http://msdn.microsoft.com/en-us/library/system.runtime.serialization.datacontractserializer%28v=vs.110%29.aspx){:target="_blank"} | Serializes and deserializes an instance of a type into an XML stream or document using a supplied data contract. This class cannot be inherited. |
 
 The case consists of serializing and deserializing a model _-which has a `DateTime` field-_ using these two serializers and a memorystream. First let's create a very simple model class:
 
 # Model class
 
-```csharp
+{% highlight csharp linenos %}
+
 public class Person
 {
     public string Name { get; set; }
@@ -33,13 +36,15 @@ public class Person
         return string.Format("{0} was born on {1}", Name, Birthday.ToString("yyyy-MM-dd hh:mm:ss"));
     }
 }
-```
+{% endhighlight %}
+
 
 We'll also need `Serialize` and `Deserialize` methods that are able to handle the model I defined above:
 
 # Serialize & Deserialize methods
 
-```csharp
+{% highlight csharp linenos %}
+
 static void Serialize(XmlObjectSerializer serializer, MemoryStream memoryStream, Person personToSerialize)
 {
     serializer.WriteObject(memoryStream, personToSerialize);
@@ -51,11 +56,13 @@ static Person Deserialize(XmlObjectSerializer serializer, MemoryStream memoryStr
     var deserializedPerson = serializer.ReadObject(memoryStream) as Person;
     return deserializedPerson;
 }
-```
+{% endhighlight %}
+
 
 Please note the **type** of `serializer` parameter in both of the methods. `XmlObjectSerializer` is the base class for both `DataContractJsonSerializer` and `DataContractSerializer` and they are defined like the following :
 
-```csharp
+{% highlight csharp linenos %}
+
 public sealed class DataContractJsonSerializer : XmlObjectSerializer {}
 public sealed class DataContractSerializer : XmlObjectSerializer {}
 public abstract class XmlObjectSerializer
@@ -65,13 +72,15 @@ public abstract class XmlObjectSerializer
     public abstract void WriteEndObject(XmlDictionaryWriter writer);
     ......
 }
-```
+{% endhighlight %}
+
 
 # Whole picture
 
 When we put it all together
 
-```csharp
+{% highlight csharp linenos %}
+
 static void Main(string[] args)
 {
     var serializer = new DataContractSerializer(typeof(Person));
@@ -85,30 +94,34 @@ static void Main(string[] args)
     }
     Console.WriteLine(deserializedJesus);
 }
-```
+{% endhighlight %}
+
 
 and run the program. We get the following output :
 
-```
+{% raw %}
 Jesus was born on 0001-01-01 12:00:00
 Press any key to continue . . .
-```
+{% endraw %}
 
 That is fine, let's change now the serializer from `DataContractSerializer` to `DataContractJsonSerializer` by replacing the following line
 
-```csharp
+{% highlight csharp linenos %}
+
 var serializer = new DataContractSerializer(typeof(Person));
-```
+{% endhighlight %}
 
 by
 
-```csharp
+{% highlight csharp linenos %}
+
 var serializer = new DataContractJsonSerializer(typeof(Person));
-```
+{% endhighlight %}
 
 We re-run the program and **surprise!**
 
-```csharp
+{% highlight csharp linenos %}
+
 Unhandled Exception: System.Runtime.Serialization.SerializationException: DateTime values that are greater than DateTime.MaxValue or smaller than DateTime.MinValue when converted to UTC cannot be serialized to JSON. ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
 Parameter name: value
    --- End of inner exception stack trace ---
@@ -116,7 +129,8 @@ Parameter name: value
    at System.Runtime.Serialization.Json.JsonWriterDelegator.WriteDateTime(DateTime value)
    at WritePersonToJson(XmlWriterDelegator , Object , XmlObjectSerializerWriteContextComplexJson , ClassDataContract , XmlDictionaryString[] )
    at System.Runtime.Serialization.Json.JsonClassDataContract.WriteJsonValueCore(XmlWriterDelegator jsonWriter, Object obj, XmlObjectSerializerWriteContextComplexJson context, RuntimeTypeHandle declaredTypeHandle)
-```
+{% endhighlight %}
+
 
 **Visibly `DataContractJsonSerializer` doesn't like Jesus** :) .
 
@@ -124,16 +138,18 @@ Parameter name: value
 
 The error message is quite clear despite the fact that it is strangely formulated:
 
-```
+{% raw %}
 DateTime values that are greater than DateTime.MaxValue or smaller than DateTime.MinValue 
 when converted to UTC cannot be serialized to JSON.
-```
+{% endraw %}
 
-At one point, `DataContractJsonSerializer` takes the `DateTime` value _-Jesus' birthday-_ we affected and it tries to convert this one to UTC and the result is not within **[DateTime.Min,DateTime.Max]**. Let's gather all the information we have :
+At one point, `DataContractJsonSerializer` takes the `DateTime` value _-Jesus' birthday-_ we affected 
+and it tries to convert this one to UTC and the result is not within **[DateTime.Min,DateTime.Max]**. 
+Let's gather all the information we have :
 
 *   The time zone I am in is UTC + 1\.
 
-[![LocalTimeToUtc](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/LocalTimeToUtc-300x51.png)](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/LocalTimeToUtc.png)
+![Coverage results with DotCover]({{ site.url }}/img/2014-12-15-Jesus-and-serializers/LocalTimeToUtc.png)
 
 *   [DateTime.Min](http://msdn.microsoft.com/en-us/library/system.datetime.minvalue%28v=vs.110%29.aspx) = 00:00:00.0000000, January 1, 0001.
 *   [DateTime.Max](http://msdn.microsoft.com/en-us/library/system.datetime.maxvalue%28v=vs.110%29.aspx) = 23:59:59.9999999, December 31, 9999
@@ -144,22 +160,28 @@ At one point, `DataContractJsonSerializer` takes the `DateTime` value _-Jesus' b
 
 The fix would be to directly assign UTC value to Jesus' birthday by replacing the following line
 
-```csharp
+{% highlight csharp linenos %}
+
 Birthday = new DateTime(1, 1, 1, 0, 0, 0)
-```
+
+{% endhighlight %}
 
 with
 
-```csharp
+{% highlight csharp linenos %}
+
 Birthday = DateTime.SpecifyKind(new DateTime(1, 1, 1, 0, 0, 0), DateTimeKind.Utc)
-```
+
+{% endhighlight %}
 
 And when we run the program, we get :
 
-```
+{% raw %}
+
 Jesus was born on 0001-01-01 12:00:00
 Press any key to continue . . .
-```
+
+{% endraw %}
 
 # Why this bug is a sneaky ?
 

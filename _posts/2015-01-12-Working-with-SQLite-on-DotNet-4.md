@@ -409,4 +409,4 @@ Code samples are available on
 
 ## What is next?
 
-In the next _- and final -_ article, I'll share some aspects and links that I judge important.
+In the next _- and final -_ article, I'll share some aspects and important links.

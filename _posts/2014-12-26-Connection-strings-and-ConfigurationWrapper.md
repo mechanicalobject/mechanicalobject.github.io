@@ -20,7 +20,7 @@ It doesn't go faster. :) I always forget one small thing and then I lose a consi
 
 # Configuration wrapper
 
-```csharp
+{% highlight csharp linenos %}
 public interface IConfigurationWrapper
 {
     string SqlServerConnectionString { get; }
@@ -33,11 +33,11 @@ public class ConfigurationWrapper : IConfigurationWrapper
         get { return ConfigurationManager.ConnectionStrings["SqlServer"].ConnectionString; }
     }
 }
-```
+{% endhighlight %}
 
 # App.config
 
-```xml
+{% highlight xml linenos %}
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
   <connectionStrings>
@@ -47,7 +47,7 @@ public class ConfigurationWrapper : IConfigurationWrapper
          providerName="System.Data.SqlClient"/>
   </connectionStrings>
 </configuration>
-```
+{% endhighlight %}
 
 Check also [The Connection Strings Reference](http://www.connectionstrings.com) , an absolute life saver.
 
@@ -57,9 +57,9 @@ Check also [The Connection Strings Reference](http://www.connectionstrings.com) 
 
 * avoids me to put hard codes code like the following
 
-```csharp
+{% highlight csharp linenos %}
 ConfigurationManager.ConnectionStrings["SqlServer"].ConnectionString;
-```
+{% endhighlight %}
 
 in my classes 
 
@@ -69,7 +69,7 @@ in my classes
 
 This type can be consumed by injecting it through the constructor.
 
-```csharp
+{% highlight csharp linenos %}
 public class SqlServerDataImporter : IDataImporter
 {
    private readonly IConfigurationWrapper _configuration;
@@ -83,4 +83,4 @@ public class SqlServerDataImporter : IDataImporter
 ...
 }
 
-```
+{% endhighlight %}

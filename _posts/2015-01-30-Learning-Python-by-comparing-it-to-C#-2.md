@@ -67,13 +67,21 @@ Every C# developer that have used Resharper or Java developers that coded using 
 
 ### Where is the documentation, where I can get some help ?
 
-From the documentation point of view, I think Python developers are lucky fellows. <a href="" https:="" www.python.org""="">The official web site</a> is very easy and pleasant to naviguate and there is a huge <a href="" https:="" www.python.org="" doc="" ""="">documentation section</a> separated by versions _-a small combobox helps the visitor to change the version-_. There are several documentation per level, e.g a document for beginners , for advanced topics , links to books and a complete language and library references.
+From the documentation point of view, I think Python developers are lucky fellows. 
+<a href="" https:="" www.python.org""="">The official web site</a> is very easy and 
+pleasant to naviguate and there is a huge 
+<a href="" https:="" www.python.org="" doc="" ""="">documentation section</a> 
+separated by versions _-a small combobox helps the visitor to change the version-_. 
+There are several documentation per level, e.g a document for beginners , for 
+advanced topics , links to books and a complete language and library references.
 
 ### How to recognize a file that contains Python source code ?
 
-Files that contains Python source code has the ```.py```` extension. Every line of code is executed except the comments.
+Files that contains Python source code has the ```.py``` extension. Every line of code is 
+executed except the comments.
 
-```
+{% highlight python linenos %}
+
 // commented line
 
 /*
@@ -82,9 +90,11 @@ line of
 comment goes here
 */
 
-```
+{% endhighlight %}
 
-```
+
+{% highlight python linenos %}
+
 # commented line
 
 '''
@@ -93,8 +103,11 @@ line of
 comment goes here
 '''
 
-```
+{% endhighlight %}
+
 
 ### What's next ?
 
-In the next article, I'll discover keywords of Python programming language. Then I'll write code snippets in C# and try to reproduce the same behavior using Python by following the roadmap.
+In the next article, I'll discover keywords of Python programming language. Then I'll 
+write code snippets in C# and try to reproduce the same behavior using Python by 
+following the roadmap.

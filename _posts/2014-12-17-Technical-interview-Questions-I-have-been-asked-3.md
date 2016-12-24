@@ -48,7 +48,8 @@ published : true
 *   Difference between `struct` and `class`.
 *   When you have the following code, the field `Id` is kept in the heap or in the stack ?
 
-```
+{% highlight csharp linenos %}
+
 public class User
 {
    public int Id {get;set;}
@@ -59,7 +60,8 @@ public class User
    var user = new User(){Id = 1};
 }
 
-```
+{% endhighlight %}
+
 
 *   How `List<t>` is implemented ?
 *   Have you heard about C.Q.R.S ?

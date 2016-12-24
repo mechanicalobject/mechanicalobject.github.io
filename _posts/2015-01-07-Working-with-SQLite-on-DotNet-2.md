@@ -7,22 +7,49 @@ tagline:
 tags: [.net, c#, database, decompiling, sqlite, programming]
 published : true
 ---
-[In the previous post of this series](http://blog.mechanicalobject.com/2015/01/05/working-with-sqlite-on-dot-net-1/), I tried to understand creation of a SQLite database and to discover tools, libraries that _wrap_ SQLite for .Net development. In this part of the series, I want to get a comprehensive map of connection string parameters for SQLite. 
+[In the previous article of this series]({{ site.baseurl }}{% post_url 2015-01-07-Working-with-SQLite-on-DotNet-1 %}){:target="_blank"}, 
+I tried to understand creation of a SQLite database and to discover tools, libraries 
+that _wrap_ SQLite for .Net development. In this part of the series, I want to get a 
+comprehensive map of connection string parameters for SQLite. 
 
 <!--more-->
 
-Every database connection needs a connection string which contains essential information. The content of this essential information may vary depending on the database you are using for the project. For example for an SQL SERVER connection string `Server`, `Database Name` are essential and almost always part of the connection string. For SQLite however, [when you look on the web](https://www.connectionstrings.com/sqlite/), you'll realize that very few parameters are used on the connection string.
+Every database connection needs a connection string which contains essential information. 
+The content of this essential information may vary depending on the database you are 
+using for the project. For example for an SQL SERVER connection string `Server`, 
+`Database Name` are essential and almost always part of the connection string. For 
+SQLite however, [when you look on the web](https://www.connectionstrings.com/sqlite/){:target="_blank"}, 
+you'll realize that very few parameters are used on the connection string.
 
 # What are the parameters passed in the connection string
 
-Let's take a very common SQLite connection string that you can find almost everywhere on the web.
+Let's take a very common SQLite connection string that you can find almost everywhere on 
+{:target="_blank"}the web.
 
-```
+{% highlight csharp linenos %}
+
 SQLiteConnection con = new SQLiteConnection("data source=TestDb.s3db;Version=3;")
 
-```
+{% endhighlight %}
 
-What I call parameters are the attributes that you see in the connection string separated by ";". For example `Data Source` or `Version` are parameters of the connection string.`TestDb.s3db` is the value of the `Data Source` parameter and `3` is the value of the `Version` parameter. **Important point to note:** I am using official DLL's provided by SQLite team. There are other libraries like [Finisar.SqLite](http://adodotnetsqlite.sourceforge.net/) which will provide different and/or additional parameters in the connection string. Unfortunately, I didn't find an exhaustive list of parameters that can be used in the connection string [except this one](http://www.nudoq.org/#!/Packages/System.Data.SQLite.Beta/System.Data.SQLite/SQLiteConnectionStringBuilder) which doesn't hold enough details. To get a complete list, I decompiled the binary and took a look at the `Open` method in _SQLiteConnection.cs_ file. You can also look at the comments present at the very beginning of the class description or look directly at the source code of `System.Data.SQLite.SQLiteConnectionStringBuilder` class. Here is a synthetic table which resumes these parameters with some additional information. All the information is borrowed from the comments in the class definition and deducted from the decompiled code. Regarding the headers of the following table:
+What I call parameters are the attributes that you see in the connection string separated 
+by ";". For example `Data Source` or `Version` are parameters of the connection string.
+`TestDb.s3db` is the value of the `Data Source` parameter and `3` is the value of the 
+`Version` parameter. **Important point to note:** I am using official DLL's provided by 
+SQLite team. 
+
+There are other libraries like [Finisar.SqLite](http://adodotnetsqlite.sourceforge.net/){:target="_blank"} 
+which will provide different and/or additional parameters in the connection string. Unfortunately, 
+I didn't find an exhaustive list of parameters that can be used in the connection string 
+[except this one](http://www.nudoq.org/#!/Packages/System.Data.SQLite.Beta/System.Data.SQLite/SQLiteConnectionStringBuilder){:target="_blank"} 
+which doesn't hold enough details. To get a complete list, I decompiled the binary and 
+took a look at the `Open` method in _SQLiteConnection.cs_ file. You can also look at the 
+comments present at the very beginning of the class description or look directly at the 
+source code of `System.Data.SQLite.SQLiteConnectionStringBuilder` class. 
+
+Here is a synthetic table which resumes these parameters with some additional information. All the 
+information is borrowed from the comments in the class definition and deducted from the 
+decompiled code. Regarding the headers of the following table:
 
 *   **Property Name**: Name of the property that is in `System.Data.SQLite.SQLiteConnectionStringBuilder` class
 *   **Display Name**: Data annotation that decorates the property. This information is used in the connection string.
@@ -224,7 +251,7 @@ What I call parameters are the attributes that you see in the connection string 
 
 # SQLiteConnectionFlags
 
-```csharp
+{% highlight csharp linenos %}
 [Flags]
 public enum SQLiteConnectionFlags
 {
@@ -266,7 +293,8 @@ public enum SQLiteConnectionFlags
     DefaultAndLogAll = Default | LogModuleError | LogBackup | LogBind | LogPreBind | LogPrepare,
 }
 
-```
+{% endhighlight %}
+
 
 That's was quite lecture for me and while reading the source code, I noticed some important points.
 
@@ -280,7 +308,7 @@ using
 
 `SQLiteConnection.ParseConnectionString` method. This method has 2 overloads:
 
-```csharp
+{% highlight csharp linenos %}
 private static SortedList<string, string> ParseConnectionString(string connectionString, bool parseViaFramework)
 {
   if (!parseViaFramework)
@@ -289,14 +317,16 @@ private static SortedList<string, string> ParseConnectionString(string connectio
      return SQLiteConnection.ParseConnectionStringViaFramework(connectionString, false);
 }
 
-```
+{% endhighlight %}
+
 
 The following part will explain the way following method
 
-```csharp
+{% highlight csharp linenos %}
 SQLiteConnection.ParseConnectionString(string connectionString)
 
-```
+{% endhighlight %}
+
 
 works:
 
@@ -306,7 +336,7 @@ works:
 4.  It adds the left side as key , the right side as value.
 5.  It tries to find the key using the following method:
 
-```csharp
+{% highlight csharp linenos %}
 static internal string FindKey(SortedList<string, string> items, string key, string defValue)
 {
   string ret;
@@ -316,19 +346,21 @@ static internal string FindKey(SortedList<string, string> items, string key, str
   return defValue;
 }
 
-```
+{% endhighlight %}
+
 
 It is important to note that the lookup value is hardcoded in the `Open` method that calls `FindKey` method.
 
-```csharp
+{% highlight csharp linenos %}
 ...
 string str = SQLiteConnection.FindKey(sortedList, "Data Source", (string) null);
 
-```
+{% endhighlight %}
+
 
 Given these steps all the followings would work _-look at how `DataSource` parameter is formatted-_.
 
-```csharp
+{% highlight csharp linenos %}
 SQLiteConnection con = new SQLiteConnection("data source=TestDb.s3db;Version=3;")
 SQLiteConnection con = new SQLiteConnection("datasource=TestDb.s3db;Version=3;")
 SQLiteConnection con = new SQLiteConnection("DataSource=TestDb.s3db;Version=3;")
@@ -336,20 +368,22 @@ SQLiteConnection con = new SQLiteConnection("Data Source=TestDb.s3db;Version=3;"
 SQLiteConnection con = new SQLiteConnection("data Source=TestDb.s3db;Version=3;")
 SQLiteConnection con = new SQLiteConnection("Data source=TestDb.s3db;Version=3;")
 
-```
+{% endhighlight %}
+
 
 On the other hand the following would not work _-an additional space between data and source-_:
 
-```csharp
+{% highlight csharp linenos %}
 (SQLiteConnection con = new SQLiteConnection("Data  Source=TestDb.s3db;Version=3;")) // with an additional space
 
-```
+{% endhighlight %}
+
 
 # Boolean values of the parameters
 
 If you look carefully on the table of connection parameters above, you'll see that for boolean values "Y" , "N", "True", "False" are used. How is that managed ? Let's take an example of a property:
 
-```csharp
+{% highlight csharp linenos %}
 [DisplayName("To Full Path")]
 [Browsable(true)]
 [DefaultValue(true)]
@@ -367,11 +401,12 @@ public bool ToFullPath
   }
 }
 
-```
+{% endhighlight %}
+
 
 The key to this conversion is right under our eyes: `SQLiteConvert.ToBoolean(source)`. This method checks whether the object we are sending is already a bool or not , if it is not, it calls another helper method.
 
-```csharp
+{% highlight csharp linenos %}
 public static bool ToBoolean(object source)
 {
   if (source is bool)
@@ -380,11 +415,13 @@ public static bool ToBoolean(object source)
     return SQLiteConvert.ToBoolean(SQLiteConvert.ToStringWithProvider(source, (IFormatProvider) CultureInfo.InvariantCulture));
 }
 
-```
+{% endhighlight %}
 
-We are close to find the secret, let's find the source code of `static bool ToBoolean(string source)`
+We are close to find the secret, let's find the source code of 
+`static bool ToBoolean(string source)`
 
-```csharp
+{% highlight csharp linenos %}
+
 public static bool ToBoolean(string source)
 {
   if (string.Compare(source, bool.TrueString, StringComparison.OrdinalIgnoreCase) == 0)
@@ -408,11 +445,12 @@ public static bool ToBoolean(string source)
   }
 }
 
-```
+{% endhighlight %}
+
 
 **Aha!** That's it. So all of the followings are accepted and will be understood by the system:
 
-```csharp
+{% highlight csharp linenos %}
 // to say false
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=false")
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=False")
@@ -428,7 +466,8 @@ SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=1")
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=on")
 
-```
+{% endhighlight %}
+
 
 # What's next?
 

@@ -7,11 +7,16 @@ tagline: a.k.a THE LIST
 tags: [methodology, programming, project management, technical interview]
 published : true
 ---
-I have a list of questions I ask at the end of an interview. Some consultants in my actual project will leave us soon so they are looking for another challenging job. 
+I have a list of questions I ask at the end of an interview. Some consultants in my actual 
+project will leave us soon so they are looking for another challenging job. 
 
 <!--more-->
 
-During morning coffee, I talked about the list I have and I advised them to make their list of questions to ask to the recruiter. They asked me whether they can have T.H.E LIST, so here it is. **Please note that these questions are unordered and may or not be convenient in some contexts. If you decide to use them, make sure it is logical to ask these for the job you'll be interviewed for.**
+During morning coffee, I talked about the list I have and I advised them to make their list 
+of questions to ask to the recruiter. They asked me whether they can have T.H.E LIST, so 
+here it is. 
+
+**Please note that these questions are unordered and may or not be convenient in some contexts. If you decide to use them, make sure it is logical to ask these for the job you'll be interviewed for.**
 
 *   Does the team practice T.D.D ?
     *   If no, do you have any unit tests on the project ?

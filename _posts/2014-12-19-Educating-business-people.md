@@ -26,15 +26,15 @@ Context : Our business is to sell complete buildings. One building is composed o
 * **Me :** Ok, no problem, what is the new formula ? 
 * **Business fellow :** Before the formula was 
 
-```
+{% raw %}
 price of the flat = neighbourhood coefficient * surface of the flat * unit price`
-```
+{% endraw %}
 
  Now we want it to be 
 
-```
+{% raw %}
 price of the flat = neighbourhood coefficient * surface of the flat * unit price * level coefficient for the flat
-```
+{% endraw %}
 
  * **Me :** Ok, is this all regarding the change ?
  * **Business fellow :** Yes, that is all we want to change the other calculations are fine. 
@@ -43,7 +43,7 @@ price of the flat = neighbourhood coefficient * surface of the flat * unit price
 
  While reading the code, I realize that price of the flat is also used in other formulas , like the tax projection formula that depends on the price of a flat. But wait, there is a problem here, because business fellow just confirmed me that all the other results were fine. Hmm, I'll send another mail to confirm the point.
 
-```
+{% raw %}
 Hello,
 
 In our previous exchange, you confirmed me that all the other results were fine. Have you looked at the tax 
@@ -51,18 +51,21 @@ projection results ? Are they fine too ? Because the modification you ask will h
 
 Thanks
 
-```
+{% endraw %}
+
 
 After a few minutes, business fellow replies in single line, by CCing other business people :
 
-```
+{% raw %}
+
 Yes, they are fine and the other results should not change.
 
-```
+{% endraw %}
 
 I am confused, I rewrite a e-mail.
 
-```
+{% raw %}
+
 Hello business fellow,
 
 the tax projection formula is like the following :
@@ -73,14 +76,17 @@ Either this formula we are using is wrong or the change you ask will impact this
 Could you clarify this point and give a complete review of all business impacts please?
 Thanks
 
-```
+{% endraw %}
+
 
 Than the business fellow replies
 
-```
+{% raw %}
+
 Tax projection formula is correct and thus it will be impacted 
 
-```
+{% endraw %}
+
 
 **Is this a joke?** What is the purpose of your position if you reply to me like that ? I am not angry, I am just disappointed. The software development is a team effort. Everyone should play ball nicely. 
 

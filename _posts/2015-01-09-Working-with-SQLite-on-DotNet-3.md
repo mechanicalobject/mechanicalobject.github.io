@@ -7,7 +7,10 @@ tagline:
 tags: [.net, c#, database, decompiling, sqlite, programming]
 published : true
 ---
-[In the previous article of this series](http://blog.mechanicalobject.com/2015/01/03/working-with-sqlite-on-net-2/), I looked into different parameters that can be defined in a SQLite connection string. Detailed map will serve when I'll need behaviors that the default values cannot provide. In this article, I will try to learn how to do CRUD operations on a SQLite database.
+[In the previous article of this series]({{ site.baseurl }}{% post_url 2015-01-07-Working-with-SQLite-on-DotNet-2 %}){:target="_blank"}
+, I looked into different parameters that can be defined in a SQLite connection string. Detailed 
+map will serve when I'll need behaviors that the default values cannot provide. In this article, 
+I will try to learn how to do CRUD operations on a SQLite database.
 
 <!--more-->
 
@@ -30,7 +33,7 @@ Let's define a data context _-I am not talking about DataContext keyword that is
 
 Given the information above, I can create my model class like the following
 
-```csharp
+{% highlight csharp linenos %}
 public class Todo
 {
    public int Id {get;set;}
@@ -52,11 +55,12 @@ public enum TodoStatus
    Done = 2,
 }
 
-```
+{% endhighlight %}
+
 
 To create data access layer for my application, I'll need following methods:
 
-```csharp
+{% highlight csharp linenos %}
 void CreateTodoTable(){}
 void AddNewTodo(Todo todoToAdd){}
 List<Todo> SelectAllTodos(){}
@@ -65,19 +69,28 @@ void UpdateTodoDescription(Todo todoToUpdate){}
 void UpdateTodoStatus(Todo todoToUpdate){}
 void DeleteTodo(Todo todoToDelete){}
 
-```
+{% endhighlight %}
+
 
 Note: You may say _-Hey, why don't you design generic methods so that you can use them in another project?_-. This would be perfectly valid proposition but let's not lose focus, the sole purpose of this series of articles is to learn how to **manipulate** SQLite.
 
 # Creating Todo table
 
-When you create a table , let's say in SQL Server, you have a [multitude of choice for column types](http://msdn.microsoft.com/en-us/library/ms187752.aspx) that will hold the data and [it is quite easy to make correspondence](http://msdn.microsoft.com/en-us/library/cc716729%28v=vs.110%29.aspx) between the type of a field/property of your model class and the type of the column. However SQLite uses a dynamic type system which consists of
+When you create a table , let's say in SQL Server, you have a 
+[multitude of choice for column types](http://msdn.microsoft.com/en-us/library/ms187752.aspx){:target="_blank"} 
+that will hold the data and 
+[it is quite easy to make correspondence](http://msdn.microsoft.com/en-us/library/cc716729%28v=vs.110%29.aspx){:target="_blank"} 
+between the type of a field/property of your model class and the type of the column. However SQLite 
+uses a dynamic type system which consists of
 
 *   defining storage classes
 *   defining type affinity rules
 *   map data types to a certain type affinity
 
-The conception aims to guarantee backward compatibility and migration of the data to/from other relational database management systems. To have a deeper understanding, please visit [SQLite official web site](https://www.sqlite.org/datatype3.html) Let's come back to our subject and try to define data type mappings for our `Todo` class:
+The conception aims to guarantee backward compatibility and migration of the data to/from other 
+relational database management systems. To have a deeper understanding, please visit 
+[SQLite official web site](https://www.sqlite.org/datatype3.html){:target="_blank"} Let's come back 
+to our subject and try to define data type mappings for our `Todo` class:
 
 | Property | Property type | SQLite data type |
 | --- | :-- | :-- |
@@ -89,7 +102,7 @@ The conception aims to guarantee backward compatibility and migration of the dat
 
 I sense a smell in the mapping for the Status column. Maybe in the future, I'll need to create a separate table and use id of this column in todo table to avoid hard coded conversions in the source code. Note that I simply expose my concerns about the limitations that the actual design may cause, I don't try over-engineer to be able to stay in the context and finish the exercise. By translating mapping table above to sql script, I get:
 
-```sql
+{% highlight sql linenos %}
 create table Todo
 (
   id int primary key, 
@@ -99,11 +112,12 @@ create table Todo
   status int
 );
 
-```
+{% endhighlight %}
+
 
 Let's implement CreateTodoTable method:
 
-```csharp
+{% highlight csharp linenos %}
 void CreateTodoTable()
 {
      const string connectionString = @"Data Source=d:\Test.db3;Version=3;";
@@ -124,13 +138,15 @@ void CreateTodoTable()
      }
 }
 
-```
+{% endhighlight %}
 
-Please note that this isn't an ideal way to do at all. Once I finish implementing CRUD methods, I will review all the code snippets to spot weak points.
+
+Please note that this isn't an ideal way to do at all. Once I finish implementing CRUD methods, 
+I will review all the code snippets to spot weak points.
 
 # Inserting data into the database
 
-```csharp
+{% highlight csharp linenos %}
 {
    ...
   var todo = new Todo()
@@ -163,12 +179,14 @@ void AddNewTodo(Todo todoToAdd)
     insertCommand.ExecuteNonQuery();
    }
 }
-```
+{% endhighlight %}
+
 Let's get someresults from database.
 
 # Selecting a result set from database
 
-```csharp
+{% highlight csharp linenos %}
+
 var allTodosInTheDatabase = SelectAllTodos();
 foreach (var todo in allTodosInTheDatabase)
 {
@@ -202,21 +220,24 @@ List<Todo> SelectAllTodos()
     return result;
 }
 
-```
+{% endhighlight %}
 
 When executed in a console application, this code snippets will give following result
 
-```
+{% highlight console %}
+
+{% raw %}
 Id : 1, Description = Finish pai..., Status = ToBeDone CreatedOn = 03/02/2010 00
 :00:00 ModifiedOn = 12/02/2014 00:00:00
+{% endraw %}
+{% endhighlight %}
 
-```
 
 # Updating the database
 
 Now that we inserted a todo row into the database, let's change its status now:
 
-```csharp
+{% highlight csharp linenos %}
 void UpdateTodoStatus(Todo todoToUpdate)
 {
     const string connectionString = @"Data Source=d:\Test.db3;Version=3;";
@@ -233,13 +254,13 @@ void UpdateTodoStatus(Todo todoToUpdate)
     }
 }
 
-```
+{% endhighlight %}
 
 # Deleting data from the database
 
 The last thing to learn now to move forward is how to delete a record from the database
 
-```csharp
+{% highlight csharp linenos %}
 void DeleteTodo(Todo todoToDelete)
 {
     const string connectionString = @"Data Source=d:\Test.db3;Version=3;";
@@ -255,7 +276,8 @@ void DeleteTodo(Todo todoToDelete)
     }
 }
 
-```
+{% endhighlight %}
+
 
 # What is wrong with the code snippets?
 
@@ -268,4 +290,5 @@ Now, let's take a step back and criticize the code snippets _-which all worked f
 
 # What's next?
 
-In the next article, I'll try to clean the code, group it into one reusable component _-do you see repository pattern smile?-_ and try to address fixes to the concerns I raised above.
+In the next article, I'll try to clean the code, group it into one reusable component
+ _-do you see repository pattern smile?-_ and try to address fixes to the concerns I raised above.

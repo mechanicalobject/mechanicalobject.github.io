@@ -11,7 +11,8 @@ published : true
 
 <!--more-->
 
-I continue the series with the questions I have been asked during an interview I had with a middle sized company which produces HR software.
+I continue the series with the questions I have been asked during an interview I had with a 
+middle sized company which produces HR software.
 
 *   What are the ASP.NET events in the life cycle of a page?
 *   Quote 3 http errors and their significations.

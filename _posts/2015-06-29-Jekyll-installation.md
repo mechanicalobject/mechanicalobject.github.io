@@ -4,7 +4,7 @@ author : Mechanical Object
 category: Article
 title: Jekyll installation
 tagline: 
-tags: [jekyll, blog, github pages]
+tags: [jekyll, blog, github pages, minddump, markdown]
 published : true
 ---
 The article I used to build my blog on github pages : 
@@ -19,7 +19,7 @@ The article I used to build my blog on github pages :
 * ``` bundle exec jekyll serve ``` 
 * ``` bundle clean --force ``` 
 
-## Useful shorcuts
+## Useful mind dump
 
 ### Create a link that opens on another tab 
 {% highlight md %}
@@ -29,8 +29,10 @@ The article I used to build my blog on github pages :
 {% endhighlight %}
 
 ### Localhost link
+
  [http://localhost:4000/](http://localhost:4000/){:target="_blank"}
-### To create links between posts 
+
+### Create links between posts 
 
 {% highlight md %}
 {% raw %}
@@ -38,7 +40,7 @@ The article I used to build my blog on github pages :
 {% endraw %}
 {% endhighlight %}
 
-### To highlight code blocks
+### Highlight code blocks
 
 {% highlight md %}
 {% raw %}
@@ -48,7 +50,7 @@ The article I used to build my blog on github pages :
 {% endraw %}
 {% endhighlight %}
 
-### To display the text as it is by escaping all
+### Display the text as it is by escaping all
 
 {% highlight liquid %}
 {% raw %}
@@ -59,3 +61,10 @@ The article I used to build my blog on github pages :
 {% endhighlight %}
 
 For more information, you can take a look at [this markdown file.](https://raw.githubusercontent.com/SLaks/SLaks.Blog/gh-pages/_posts/2013-06-10-jekyll-endraw-in-code.md){:target="_blank"} 
+
+### Insert an image 
+{% highlight liquid %}
+{% raw %}
+![Coverage results with DotCover]({{ site.url }}/img/2013-04-19-Coverage-of-auto-implemented-properties-with-dotCover/dotnet-coverage-with-properties.png)
+{% endraw %}
+{% endhighlight %}
