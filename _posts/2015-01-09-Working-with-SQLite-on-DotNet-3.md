@@ -7,7 +7,7 @@ tagline:
 tags: [.net, c#, database, decompiling, sqlite, programming]
 published : true
 ---
-[In the previous article of this series]({{ site.baseurl }}{% post_url 2015-01-07-Working-with-SQLite-on-DotNet-2 %}){:target="_blank"}
+In the [previous article of this series]({{ site.baseurl }}{% post_url 2015-01-07-Working-with-SQLite-on-DotNet-2 %}){:target="_blank"}
 , I looked into different parameters that can be defined in a SQLite connection string. Detailed 
 map will serve when I'll need behaviors that the default values cannot provide. In this article, 
 I will try to learn how to do CRUD operations on a SQLite database.

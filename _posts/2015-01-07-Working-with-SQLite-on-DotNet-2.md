@@ -7,7 +7,7 @@ tagline:
 tags: [.net, c#, database, decompiling, sqlite, programming]
 published : true
 ---
-[In the previous article of this series]({{ site.baseurl }}{% post_url 2015-01-02-Working-with-SQLite-on-DotNet-1 %}){:target="_blank"}, 
+In the [previous article of this series]({{ site.baseurl }}{% post_url 2015-01-02-Working-with-SQLite-on-DotNet-1 %}){:target="_blank"}, 
 I tried to understand creation of a SQLite database and to discover tools, libraries 
 that _wrap_ SQLite for .Net development. In this part of the series, I want to get a 
 comprehensive map of connection string parameters for SQLite. 
