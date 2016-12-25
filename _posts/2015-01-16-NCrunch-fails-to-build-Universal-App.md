@@ -36,7 +36,7 @@ source/destination aren't taking into account the absolute file path being speci
 
 >App.xaml has its file path specified differently because it is a solution-level item 
 
-{% highlight xml linenos %}
+{% highlight xml %}
 
 ("$(MSBuildThisFileDirectory)App.xaml")
 
