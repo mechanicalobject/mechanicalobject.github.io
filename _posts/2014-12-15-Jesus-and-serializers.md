@@ -188,11 +188,12 @@ Press any key to continue . . .
 
 # Why this bug is a sneaky ?
 
-Because depending on the time zone you are in, you may or not encounter the bug. If you are in UTC+0, the program will work just fine for you with both of the serializers
+Because depending on the time zone you are in, you may or not encounter the bug. 
+If you are in UTC+0, the program will work just fine for you with both of the 
+serializers.
 
 ![World time zone map](http://i.imgur.com/i2IojXsl.png)
 
-<!--<blockquote class="imgur-embed-pub" lang="en" data-id="a/16jdp"><a href="//imgur.com/16jdp"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>-->
 
 # Important notes
 

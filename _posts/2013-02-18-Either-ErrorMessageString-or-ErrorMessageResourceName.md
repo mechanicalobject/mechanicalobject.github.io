@@ -71,7 +71,7 @@ That seemed fair to me, I hit the build which was green and re-run the tests and
 
 I got a message saying :
 
-![Error message resource](http://i.imgur.com/TO6NxXb.jpg))
+![Error message resource](http://i.imgur.com/TO6NxXb.jpg)
 
 After a quick search, I found these :
 

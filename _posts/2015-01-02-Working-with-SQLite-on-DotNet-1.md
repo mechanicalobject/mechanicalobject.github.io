@@ -60,6 +60,8 @@ Once this extension is installed right click on **Data Connections** and chose
 
 ![Sql Server compact-Lite tools](http://i.imgur.com/HBvn7Us.png)
 
+
+
 ## 2 . Create a database using SQLiteConnection.CreateFile method
 
 {% highlight csharp linenos %}
