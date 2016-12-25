@@ -149,7 +149,7 @@ Let's gather all the information we have :
 
 *   The time zone I am in is UTC + 1\.
 
-![Coverage results with DotCover]({{ site.url }}/img/2014-12-15-Jesus-and-serializers/LocalTimeToUtc.png)
+![Local time to utc]({{ site.url }}/img/2014-12-15-Jesus-and-serializers/LocalTimeToUtc.png)
 
 *   [DateTime.Min](http://msdn.microsoft.com/en-us/library/system.datetime.minvalue%28v=vs.110%29.aspx){:target="_blank"} = 00:00:00.0000000, January 1, 0001.
 *   [DateTime.Max](http://msdn.microsoft.com/en-us/library/system.datetime.maxvalue%28v=vs.110%29.aspx){:target="_blank"} = 23:59:59.9999999, December 31, 9999
@@ -188,7 +188,11 @@ Press any key to continue . . .
 
 # Why this bug is a sneaky ?
 
-Because depending on the time zone you are in, you may or not encounter the bug. If you are in UTC+0, the program will work just fine for you with both of the serializers![alt text](http://blog.mechanicalobject.com/wp-content/uploads/2014/12/World_Time_Zones_Map_UTC0_marked.png "World Time Zones Map")
+Because depending on the time zone you are in, you may or not encounter the bug. If you are in UTC+0, the program will work just fine for you with both of the serializers
+
+![World time zone map](http://i.imgur.com/i2IojXsl.png)
+
+<!--<blockquote class="imgur-embed-pub" lang="en" data-id="a/16jdp"><a href="//imgur.com/16jdp"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>-->
 
 # Important notes
 
