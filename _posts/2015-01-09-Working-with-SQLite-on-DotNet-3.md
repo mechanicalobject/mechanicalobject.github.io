@@ -226,10 +226,9 @@ When executed in a console application, this code snippets will give following r
 
 {% highlight console %}
 
-{% raw %}
 Id : 1, Description = Finish pai..., Status = ToBeDone CreatedOn = 03/02/2010 00
 :00:00 ModifiedOn = 12/02/2014 00:00:00
-{% endraw %}
+
 {% endhighlight %}
 
 

@@ -48,7 +48,12 @@ Furthermore, since I know that I'll use configuration file _-especially to addre
 I created a `ConfigurationWrapper` class that can be injected as dependency thus I will avoid writing code 
 like the below in my classes.
 
-    var connectionString = ConfigurationManager.ConnectionStrings["TodoDatabase"].ConnectionString;
+
+{% highlight csharp %}
+
+var connectionString = ConfigurationManager.ConnectionStrings["TodoDatabase"].ConnectionString;
+
+{% endhighlight %}
 
 `ConfigurationWrapper` class is as simple as:
 
@@ -179,10 +184,11 @@ read in a minute.
 [In the previous article]({{ site.baseurl }}{% post_url 2015-01-09-Working-with-SQLite-on-DotNet-3 %}){:target="_blank"}, 
 there were hard coded connection strings in every method:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 var connectionString = @"Data Source=test1.sql3db";
 {% endhighlight %}
-To see the problem, I have asked myself "What happens if I change the connection string": 
+To see the problem, I have asked myself "What happens if I change the connection 
+string": 
 1\. I'll need to change it in every method ⇒ code duplication 
 2\. I'll have to **re-compile** the code. In production environments it means deployment. That is not 
 something you would want for a simple change as connection string. 
@@ -214,7 +220,12 @@ AppDomain.SetData("DataDirectory", objValue) method. The DataDirectory substitut
 surrounded by the pipe characters and there cannot be any whitespace between its name and the pipe 
 characters. The DataDirectory name is not case-sensitive. If a physical directory named "DataDirectory" 
 has to be passed as a member of the list of metadata paths, add whitespace should on either side or 
-both sides of the name, for example: Metadata="DataDirectory1 | DataDirectory | DataDirectory2". 
+both sides of the name, for example: 
+
+{% raw %}
+Metadata="DataDirectory1 | DataDirectory | DataDirectory2". 
+{% endraw %}
+
 An ASP.NET application resolves |DataDirectory| to the "<application root="">/app_data" folder.</application>
 
 # Issue n&deg; 2 : Error handling
@@ -302,7 +313,7 @@ UpdateStatus(todo);
 
 The moment execution flow hits the line
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 updateCommand.Parameters.AddWithValue("@status", (int)todoToUpdate.Status);
 {% endhighlight %}
 

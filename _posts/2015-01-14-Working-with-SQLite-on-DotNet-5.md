@@ -18,7 +18,7 @@ tool you'll use in your project.
 
 # Optimizing performances
 
-[This fellow](http://blog.thomasbandt.de/39/2433/de/blog/performance-optimization-of-sqlite-on-ios-with-xamarin.html){:target="_blank"}
+[Thomas Bandt](http://blog.thomasbandt.de/39/2433/de/blog/performance-optimization-of-sqlite-on-ios-with-xamarin.html){:target="_blank"}
 made a nice blog post and kindly gives some tips based on his experience. Also, please 
 [take a look at the official web site](https://www.sqlite.org/cvstrac/wiki?p=PerformanceTuning){:target="_blank"}
 which contains valuable information.

@@ -99,28 +99,28 @@ static void Main(string[] args)
 
 and run the program. We get the following output :
 
-{% raw %}
+{% highlight console %}
 Jesus was born on 0001-01-01 12:00:00
 Press any key to continue . . .
-{% endraw %}
+{% endhighlight %}
 
 That is fine, let's change now the serializer from `DataContractSerializer` to `DataContractJsonSerializer` by replacing the following line
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 var serializer = new DataContractSerializer(typeof(Person));
 {% endhighlight %}
 
 by
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 var serializer = new DataContractJsonSerializer(typeof(Person));
 {% endhighlight %}
 
 We re-run the program and **surprise!**
 
-{% highlight csharp linenos %}
+{% highlight console linenos %}
 
 Unhandled Exception: System.Runtime.Serialization.SerializationException: DateTime values that are greater than DateTime.MaxValue or smaller than DateTime.MinValue when converted to UTC cannot be serialized to JSON. ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
 Parameter name: value
@@ -138,10 +138,10 @@ Parameter name: value
 
 The error message is quite clear despite the fact that it is strangely formulated:
 
-{% raw %}
+{% highlight console %}
 DateTime values that are greater than DateTime.MaxValue or smaller than DateTime.MinValue 
 when converted to UTC cannot be serialized to JSON.
-{% endraw %}
+{% endhighlight %}
 
 At one point, `DataContractJsonSerializer` takes the `DateTime` value _-Jesus' birthday-_ we affected 
 and it tries to convert this one to UTC and the result is not within **[DateTime.Min,DateTime.Max]**. 
@@ -151,16 +151,19 @@ Let's gather all the information we have :
 
 ![Coverage results with DotCover]({{ site.url }}/img/2014-12-15-Jesus-and-serializers/LocalTimeToUtc.png)
 
-*   [DateTime.Min](http://msdn.microsoft.com/en-us/library/system.datetime.minvalue%28v=vs.110%29.aspx) = 00:00:00.0000000, January 1, 0001.
-*   [DateTime.Max](http://msdn.microsoft.com/en-us/library/system.datetime.maxvalue%28v=vs.110%29.aspx) = 23:59:59.9999999, December 31, 9999
+*   [DateTime.Min](http://msdn.microsoft.com/en-us/library/system.datetime.minvalue%28v=vs.110%29.aspx){:target="_blank"} = 00:00:00.0000000, January 1, 0001.
+*   [DateTime.Max](http://msdn.microsoft.com/en-us/library/system.datetime.maxvalue%28v=vs.110%29.aspx){:target="_blank"} = 23:59:59.9999999, December 31, 9999
 
-**So the code does the equivalent of `new DateTime(1, 1, 1, 0, 0, 0).Add(-1)` which is lower than `DateTime.Min` constant value hence the reason of the exception we got.**
+**So the code does the equivalent of `new DateTime(1, 1, 1, 0, 0, 0).Add(-1)`** 
+**which is lower than `DateTime.Min` constant value hence the reason of the**
+**exception we got.**
 
 # How to fix it ?
 
-The fix would be to directly assign UTC value to Jesus' birthday by replacing the following line
+The fix would be to directly assign UTC value to Jesus' birthday by replacing the 
+following line
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 Birthday = new DateTime(1, 1, 1, 0, 0, 0)
 
@@ -168,7 +171,7 @@ Birthday = new DateTime(1, 1, 1, 0, 0, 0)
 
 with
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 Birthday = DateTime.SpecifyKind(new DateTime(1, 1, 1, 0, 0, 0), DateTimeKind.Utc)
 
@@ -176,12 +179,12 @@ Birthday = DateTime.SpecifyKind(new DateTime(1, 1, 1, 0, 0, 0), DateTimeKind.Utc
 
 And when we run the program, we get :
 
-{% raw %}
+{% highlight console %}
 
 Jesus was born on 0001-01-01 12:00:00
 Press any key to continue . . .
 
-{% endraw %}
+{% endhighlight %}
 
 # Why this bug is a sneaky ?
 
@@ -189,7 +192,7 @@ Because depending on the time zone you are in, you may or not encounter the bug.
 
 # Important notes
 
-1.  The source code for this article is available on [GitHub](https://github.com/mechanicalobject/sandbox/tree/master/MechanicalObject.Sandbox.DataSerializer)
+1.  The source code for this article is available on [GitHub](https://github.com/mechanicalobject/sandbox/tree/master/MechanicalObject.Sandbox.DataSerializer){:target="_blank"}
 2.  **Do not use** the code snippets given in this article in production code. You might want to add guard clauses against null or unwanted values and add unit tests with edge cases _- we worked on lower bound (`DateTime.Min`), what happens on upper bound (`DateTime.Max`)? -_ .
 
-3.  [All credits for the time zone map belongs to wikipedia user TimeZonesBoy](http://en.wikipedia.org/wiki/User:TimeZonesBoy). [The map itself is borrowed from wikipedia](http://en.wikipedia.org/wiki/Time_zone)
+3.  [All credits for the time zone map belongs to wikipedia user TimeZonesBoy](http://en.wikipedia.org/wiki/User:TimeZonesBoy){:target="_blank"}. [The map itself is borrowed from wikipedia](http://en.wikipedia.org/wiki/Time_zone){:target="_blank"}

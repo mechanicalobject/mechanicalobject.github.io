@@ -30,7 +30,12 @@ public class ConfigurationWrapper : IConfigurationWrapper
 {
     public string SqlServerConnectionString
     {
-        get { return ConfigurationManager.ConnectionStrings["SqlServer"].ConnectionString; }
+        get 
+        {
+            var result = ConfigurationManager.ConnectionStrings["SqlServer"]
+                                             .ConnectionString; 
+            return result;
+        }
     }
 }
 {% endhighlight %}
@@ -49,7 +54,7 @@ public class ConfigurationWrapper : IConfigurationWrapper
 </configuration>
 {% endhighlight %}
 
-Check also [The Connection Strings Reference](http://www.connectionstrings.com) , an absolute life saver.
+Check also [The Connection Strings Reference](http://www.connectionstrings.com){:target="_blank"} , an absolute life saver.
 
 # Why I would need the ConfigurationWrapper ?
 

@@ -73,7 +73,7 @@ I got a message saying :
 
 ![My helpful screenshot]({{ site.url }}/img/2013-02-18-Either-ErrorMessageString-or-ErrorMessageResourceName/Test_Email_IsValid_Failed.jpg){:class="img-responsive"}
 
-After a quick search, these :
+After a quick search, I found these :
 
 * [Link 1](https://connect.microsoft.com/VisualStudio/feedback/details/757298/emailaddress-attribute-is-unable-to-load-error-message-from-resource-mvc){:target="_blank"}
 * [Link 2](https://connect.microsoft.com/VisualStudio/feedback/details/776694/attributes-derived-from-validationattribute-throw-exception-when-used-with-error-messages-in-resource-files){:target="_blank"}

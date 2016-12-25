@@ -14,13 +14,13 @@ A few concerns though about what is written :
 
 1/ I don't believe there is need to write a custom attribute like (unless you want to enhance it)
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public class LocalizedDisplayNameAttribute : DisplayNameAttribute{}
 {% endhighlight %}
 
 I preferred the following for my budget entry model since the base behaviour is OK for me :
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 [Display(Name = "Amount", ResourceType = typeof(Resources.Model.Budget.BudgetEntryStrings))]
 public class Budget{}
 {% endhighlight %}

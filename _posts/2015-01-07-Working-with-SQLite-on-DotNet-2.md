@@ -26,7 +26,7 @@ you'll realize that very few parameters are used on the connection string.
 Let's take a very common SQLite connection string that you can find almost everywhere on 
 {:target="_blank"}the web.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 SQLiteConnection con = new SQLiteConnection("data source=TestDb.s3db;Version=3;")
 
