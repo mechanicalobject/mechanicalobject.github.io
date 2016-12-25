@@ -14,7 +14,7 @@ description:
 	<nav>
 		<div class="row">
 			<div class="col-md-4 col-sm-3 col-xs-6">
-				<a href="blog/" title="Blog" target="_blank">
+				<a href="blog/" title="Blog">
 					<div class="tile red">
 						<h3 class="title">Blog</h3>						
 					</div>
@@ -22,7 +22,7 @@ description:
 			</div>
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				{% for post in site.posts limit:1 %}
-				<a href="{{post.url}}" title="Latest Article" target="_blank">
+				<a href="{{post.url}}" title="Latest Article">
 					<div class="tile orange">
 						<h3 class="title">Latest Article</h3>
 						<h4 class="title">{{ post.title }}</h4>
@@ -36,14 +36,14 @@ description:
 		<div class="row">
 				
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="links/" title="Links" target="_blank">
+				<a href="links/" title="Links">
 					<div class="tile green">
 						<h3 class="title">Links</h3>						
 					</div>
 				</a>
 			</div>
 			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="about/" title="About Me" target="_blank">
+				<a href="about/" title="About Me">
 					<div class="tile yellow">
 						<h2 class="title">About</h2>						
 					</div>
@@ -53,7 +53,7 @@ description:
 
 		<div class="row">
 					<div class="col-md-2 col-sm-3 col-xs-6">
-						<a href="feed.xml" title="RSS Feed" class="tile purple">
+						<a href="feed.xml" title="RSS Feed" class="tile purple" target="_blank">
 							<i class="icon-rss" style="font-size:8em"></i>
 						</a>
 					</div>
