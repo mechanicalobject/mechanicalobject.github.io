@@ -7,8 +7,11 @@ tagline:
 tags: [jekyll, blog, github pages, minddump, markdown]
 published : true
 ---
-The article I used to build my blog on github pages : 
-[Build A Blog With Jekyll And GitHub Pages](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/){:target="_blank"}
+The articles I used to build my blog on github pages : 
+
+* [Build A Blog With Jekyll And GitHub Pages](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/){:target="_blank"}
+* [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/){:target="_blank"}
+
 
 ## Useful commands
 * ``` jekyll serve --watch ```
