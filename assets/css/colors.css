@@ -1,7 +1,7 @@
 .li8-green, .green, .drk-green,
 .magenta, .li8-purple, .purple,
 .darken, .teal, .blue, .drk-blue,
- .red, .orange {
+ .red, .orange, .gray {
     color: #fff;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .magenta {
-    background: #ff0097
+    background: #ff0097;
     border: 1px solid #CC0079;
 }
 
@@ -43,6 +43,11 @@
 
 .darken {
     background:#1d1d1d;
+    border: 1px solid #111111;
+}
+
+.gray {
+    background:#778899;
     border: 1px solid #111111;
 }
 
@@ -120,6 +125,12 @@
     background: #1d1d1d;
 }
 
+.gray .left-nav-item a:hover{
+    text-decoration: none;
+    color: #fff;
+    background: #778899;
+}
+
 .teal .left-nav-item a:hover{
     text-decoration: none;
     color: #fff;
@@ -182,6 +193,10 @@
 
 .darken .left-nav-selected {
     background: #111111;
+}
+
+.gray .left-nav-selected {
+    background: #778899;
 }
 
 .teal .left-nav-selected {
@@ -262,6 +277,14 @@ li.darken > a:hover,
 li.darken > a:focus {
     color: #fff;
     background: #1d1d1d;
+    text-decoration: none;
+}
+
+li.gray > a,
+li.gray > a:hover,
+li.gray > a:focus {
+    color: #fff;
+    background: #778899;
     text-decoration: none;
 }
 
@@ -348,6 +371,11 @@ li.orange > a:focus {
     background: #1d1d1d;
 }
 
+.btn-gray {
+    color: #fff;
+    background: #778899;
+}
+
 .btn-teal {
     color: #fff;
     background: #00aba9;
@@ -418,6 +446,12 @@ a.darken-link,
 a.darken-link:hover,
 a.darken-link:focus {
     color: #1d1d1d;
+}
+
+a.gray-link,
+a.gray-link:hover,
+a.gray-link:focus {
+    color: #778899;
 }
 
 a.teal-link,

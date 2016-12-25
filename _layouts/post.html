@@ -4,16 +4,22 @@ layout: master
 
 <div class="container-fluid">
   <div class="row">
-    <div class="hidden-xs col-md-2 col-sm-3 blue sidebar">
+    <div class="hidden-xs col-md-2 col-sm-3 darken sidebar">
       {% include sidemenu.html %}
-    </div> <!-- Side column -->
+    </div> 
+    <!-- Side column -->
     <div class="col-md-8 col-sm-7 col-md-offset-3 col-sm-offset-4">
-      <article class="col-md-12 col-xs-12 justified" itemscope itemtype="http://schema.org/BlogPosting">
-        <h1 class="post-title" itemprop="name" itemprop="headline">{{ page.title }}</h1>
+      <article class="col-md-12 col-xs-12 justified" 
+              itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 class="post-title" itemprop="name" itemprop="headline">
+          {{ page.title }}
+        </h1>        
         <div class="publish-tag">
           <span class="fa fa-calendar"></span>&nbsp;Published On <span itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }} </span>
         </div>
-        <div itemprop="articleBody" >{{ content }}</div>
+        <div itemprop="articleBody" >
+          {{ content }}
+        </div>
         <br/>
         <span class="fa fa-tag"></span>Tags:
         {% if page.tags %}

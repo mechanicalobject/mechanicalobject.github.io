@@ -2,6 +2,6 @@
 layout: page
 title: Resume
 description: Resume
-theme: red
+theme: gray
 ---
 To do ...
