@@ -71,7 +71,7 @@ That seemed fair to me, I hit the build which was green and re-run the tests and
 
 I got a message saying :
 
-![My helpful screenshot]({{ site.url }}/img/2013-02-18-Either-ErrorMessageString-or-ErrorMessageResourceName/Test_Email_IsValid_Failed.jpg){:class="img-responsive"}
+![Error message resource](http://i.imgur.com/TO6NxXb.jpg))
 
 After a quick search, I found these :
 

@@ -55,7 +55,6 @@ public DateTime EndDate{get; private set;}
 
 When I run the tests and asked to see the coverage, I have the following results : 
 
-![Coverage results with DotCover]({{ site.url }}/img/2013-04-19-Coverage-of-auto-implemented-properties-with-dotCover/dotnet-coverage-with-properties.png)
-
+![Test coverage](http://i.imgur.com/MYO4elnl.png)
 
 It seems that this is already a logged issue on [jetbrains website](https://youtrack.jetbrains.com/issue/DCVR-4103){:target="_blank"}.

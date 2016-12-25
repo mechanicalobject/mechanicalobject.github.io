@@ -17,7 +17,7 @@ is to go to his plate his plate and eat. Well, I narrated all this in present te
 should have been past tense. Gone! All the problems solved! Vet advised me to buy 
 [this](http://www.pipolino.eu/en/12-for-cat){:target="_blank"}
 
-![Pipolino]({{ site.url }}/img/2014-12-09-Pipolino-life-saver/Pipolino-Size-M.png)
+![Pipolino](http://i.imgur.com/LhtjEDn.png)
 
 Basically, it is cylinder with a lot of holes having different sizes. 3 steps to make it functional : 
 

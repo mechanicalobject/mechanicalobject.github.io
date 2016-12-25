@@ -149,7 +149,7 @@ Let's gather all the information we have :
 
 *   The time zone I am in is UTC + 1\.
 
-![Local time to utc]({{ site.url }}/img/2014-12-15-Jesus-and-serializers/LocalTimeToUtc.png)
+![Local time to utc](http://i.imgur.com/sOCDrCg.png)
 
 *   [DateTime.Min](http://msdn.microsoft.com/en-us/library/system.datetime.minvalue%28v=vs.110%29.aspx){:target="_blank"} = 00:00:00.0000000, January 1, 0001.
 *   [DateTime.Max](http://msdn.microsoft.com/en-us/library/system.datetime.maxvalue%28v=vs.110%29.aspx){:target="_blank"} = 23:59:59.9999999, December 31, 9999

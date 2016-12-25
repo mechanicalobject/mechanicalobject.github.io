@@ -58,7 +58,7 @@ Tools ⇒ Extension and Updates ⇒ Search for SQL Server Compact & SQLite Toolb
 Once this extension is installed right click on **Data Connections** and chose 
 **Add SqLite Connection**. The menu will guide you for the rest.
 
-[![Sql Server compact-Lite tools](http://blog.mechanicalobject.com/wp-content/uploads/2015/01/Sql-Server-compact-Lite-tools.png)](http://blog.mechanicalobject.com/wp-content/uploads/2015/01/Sql-Server-compact-Lite-tools.png)
+![Sql Server compact-Lite tools](http://i.imgur.com/HBvn7Us.png)
 
 ## 2 . Create a database using SQLiteConnection.CreateFile method
 
