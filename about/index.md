@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hi, I am Evrim
+title: About this blog, me
 description: About Me page
 theme: gray
 ---
