@@ -20,6 +20,17 @@ description: Home, home sweet home ...
 					</div>
 				</a>
 			</div>
+					<div class="col-md-2 col-sm-3 col-xs-6">
+				<a href="about/" title="About Me">
+					<div class="tile yellow">
+						<h2 class="title">About</h2>						
+					</div>
+				</a>
+		    </div>			
+		</div>
+		<!--ROW ==> Feeds and other sites-->
+		<div class="row">
+				
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				{% for post in site.posts limit:1 %}
 				<a href="{{post.url}}" title="Latest Article">
@@ -30,33 +41,18 @@ description: Home, home sweet home ...
 					</div>
 				</a>
 				{% endfor %}
-			</div>					
+			</div>	
 		</div>
-		<!--ROW ==> Feeds and other sites-->
+
 		<div class="row">
-				
-			<div class="col-md-2 col-sm-3 col-xs-6">
+					<div class="col-md-2 col-sm-3 col-xs-6">
 				<a href="links/" title="Links">
 					<div class="tile green">
 						<h3 class="title">Links</h3>						
 					</div>
 				</a>
 			</div>
-			<div class="col-md-2 col-sm-3 col-xs-6">
-				<a href="about/" title="About Me">
-					<div class="tile yellow">
-						<h2 class="title">About</h2>						
-					</div>
-				</a>
-		    </div>	
-		</div>
-
-		<div class="row">
-					<div class="col-md-2 col-sm-3 col-xs-6">
-						<a href="feed.xml" title="RSS Feed" class="tile purple" target="_blank">
-							<i class="icon-rss" style="font-size:8em"></i>
-						</a>
-					</div>
+			
 		</div>
 		<!--ROW ==> LINKS-->
 		<div class="row" style="margin-bottom:25px">
@@ -74,7 +70,12 @@ description: Home, home sweet home ...
 				<a href="{{site.linkedin}}" title="LinkedIn" class="tile purple" target="_blank">
 					<i class="icon-lkin" style="font-size:8em"></i>
 				</a>
-			</div>			
+			</div>		
+			<div class="col-md-2 col-sm-3 col-xs-6">
+						<a href="feed.xml" title="RSS Feed" class="tile cyan" target="_blank">
+							<i class="icon-rss" style="font-size:8em"></i>
+						</a>
+					</div>	
 		</div>
 	</nav>
 </div>
