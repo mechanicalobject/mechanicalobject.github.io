@@ -10,7 +10,12 @@ theme: darken
             <ul class="nav nav-pills">
                 {% for tag in site.tags %}
                 <li class="red" style="margin:5px">
-                    <a href="/tags/{{ tag | first | slugize }}/"> {{ tag | first }}&nbsp;<span class="badge">{{ tag | last | size}}</span></a>
+                    <a href="#{{ tag[0] | slugify }}"> 
+                        {{ tag | first }}&nbsp;
+                        <span class="badge">
+                            {{ tag | last | size}}
+                        </span>
+                    </a>
                 </li>
                 {% endfor %}
             </ul>
@@ -22,27 +27,18 @@ theme: darken
 <hr/>
 <div class="row">
     <div class="col-md-12">
-        <section>
-        {% capture tags %}
-            {% for tag in site.tags %}
-                {{ tag[0] }}
-            {% endfor %}
-        {% endcapture %}
+    {% for tag in site.tags %}
+    <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+    <ul class="tags-expo-posts">
+      {% for post in tag[1] %}
+        <a class="red-link" href="{{ site.baseurl }}{{ post.url }}">
+      <li class="alink">
+        {{ post.title }} ({{ post.date | date_to_string }})
+      </li>
+      </a>
+      {% endfor %}
+    </ul>
+    {% endfor %}
+  </div>
 
-        {% assign sortedtags = tags | split:' ' | sort %}
-
-        {% for tag in sortedtags %}
-            <h3 id="{{tag}}">{{tag}}</h3>
-            <ul>
-                {% for post in site.posts %}
-                    {% for otag in post.tags %}
-                        {% if tag == otag %}
-                            <li class="alink"><a href="{{ post.url }}" class="red-link">{{ post.title }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        {% endfor %}
-        </section>
-    </div>
 </div>

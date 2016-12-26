@@ -7,7 +7,7 @@ tagline:
 tags: [.net, c#, technical interview]
 published : true
 ---
-In the [previous article]({{ site.baseurl }}{% post_url 2014-12-12-Technical interview-Questions-I-have-been-asked-2 %}){:target="_blank"},
+In the [previous article]({{ site.baseurl }}{% post_url 2014-12-12-Technical-interview-Questions-I-have-been-asked-2 %}){:target="_blank"},
 of the series on technical interview questions, I shared the real interview questions I have been asked for middle-sized company that 
 commercialize HR solutions. I have gone through my mails and found a memo to myself for a series of interviews I had for job vacancy 
 in a small arbitrage company. 
