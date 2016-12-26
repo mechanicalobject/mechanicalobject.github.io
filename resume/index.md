@@ -2,6 +2,7 @@
 layout: page
 title: Resume
 description: Resume
-theme: gray
+theme: darken
 ---
 To do ...
+fdfd

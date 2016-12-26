@@ -2,7 +2,7 @@
 layout: page
 title: About this blog, me
 description: About Me page
-theme: gray
+theme: darken 
 ---
 I am a **bug farmer**. I like algorithms, clean code, design patterns and I have an interest in data science, particularly in machine learning. 
 
