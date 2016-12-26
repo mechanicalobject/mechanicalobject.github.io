@@ -5,7 +5,6 @@ description: Machine Learning
 theme: darken
 ---
 
-# Machine Learning
 Here you'll find links to useful resources on machine learning.
 
 ## **Online courses**
