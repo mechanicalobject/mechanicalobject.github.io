@@ -251,7 +251,7 @@ decompiled code. Regarding the headers of the following table:
 
 # SQLiteConnectionFlags
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 [Flags]
 public enum SQLiteConnectionFlags
 {
@@ -308,7 +308,7 @@ using
 
 `SQLiteConnection.ParseConnectionString` method. This method has 2 overloads:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 private static SortedList<string, string> ParseConnectionString(string connectionString, bool parseViaFramework)
 {
   if (!parseViaFramework)
@@ -322,7 +322,7 @@ private static SortedList<string, string> ParseConnectionString(string connectio
 
 The following part will explain the way following method
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 SQLiteConnection.ParseConnectionString(string connectionString)
 
 {% endhighlight %}
@@ -336,7 +336,7 @@ works:
 4.  It adds the left side as key , the right side as value.
 5.  It tries to find the key using the following method:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 static internal string FindKey(SortedList<string, string> items, string key, string defValue)
 {
   string ret;
@@ -351,7 +351,7 @@ static internal string FindKey(SortedList<string, string> items, string key, str
 
 It is important to note that the lookup value is hardcoded in the `Open` method that calls `FindKey` method.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 ...
 string str = SQLiteConnection.FindKey(sortedList, "Data Source", (string) null);
 
@@ -360,7 +360,7 @@ string str = SQLiteConnection.FindKey(sortedList, "Data Source", (string) null);
 
 Given these steps all the followings would work _-look at how `DataSource` parameter is formatted-_.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 SQLiteConnection con = new SQLiteConnection("data source=TestDb.s3db;Version=3;")
 SQLiteConnection con = new SQLiteConnection("datasource=TestDb.s3db;Version=3;")
 SQLiteConnection con = new SQLiteConnection("DataSource=TestDb.s3db;Version=3;")
@@ -373,7 +373,7 @@ SQLiteConnection con = new SQLiteConnection("Data source=TestDb.s3db;Version=3;"
 
 On the other hand the following would not work _-an additional space between data and source-_:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 (SQLiteConnection con = new SQLiteConnection("Data  Source=TestDb.s3db;Version=3;")) // with an additional space
 
 {% endhighlight %}
@@ -383,7 +383,7 @@ On the other hand the following would not work _-an additional space between dat
 
 If you look carefully on the table of connection parameters above, you'll see that for boolean values "Y" , "N", "True", "False" are used. How is that managed ? Let's take an example of a property:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 [DisplayName("To Full Path")]
 [Browsable(true)]
 [DefaultValue(true)]
@@ -406,7 +406,7 @@ public bool ToFullPath
 
 The key to this conversion is right under our eyes: `SQLiteConvert.ToBoolean(source)`. This method checks whether the object we are sending is already a bool or not , if it is not, it calls another helper method.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public static bool ToBoolean(object source)
 {
   if (source is bool)
@@ -420,7 +420,7 @@ public static bool ToBoolean(object source)
 We are close to find the secret, let's find the source code of 
 `static bool ToBoolean(string source)`
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public static bool ToBoolean(string source)
 {
@@ -450,7 +450,7 @@ public static bool ToBoolean(string source)
 
 **Aha!** That's it. So all of the followings are accepted and will be understood by the system:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 // to say false
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=false")
 SQLiteConnection con = new SQLiteConnection("data source  = TestDb.s3db;Version=3;FailIfMissing=False")

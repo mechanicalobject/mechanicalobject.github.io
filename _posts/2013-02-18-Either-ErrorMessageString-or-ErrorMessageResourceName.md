@@ -17,7 +17,7 @@ Here is my model :
 
 <!--more-->
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public class BlogPostComment : ModelBase
 {
@@ -47,7 +47,7 @@ public class BlogPostComment : ModelBase
 
 I wrote two simple unit tests to test the validation logic in my model
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 [Test]
 [ExpectedException(typeof(ValidationException), ExpectedMessage="The field [Email] is required!")]
@@ -83,7 +83,7 @@ After a quick search, I found these :
 
 After having modified the code,
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 {
     ....
     [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required", ErrorMessage = null)]

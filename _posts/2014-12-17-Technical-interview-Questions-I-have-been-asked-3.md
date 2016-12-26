@@ -51,7 +51,7 @@ in a small arbitrage company.
 *   Difference between `struct` and `class`.
 *   When you have the following code, the field `Id` is kept in the heap or in the stack ?
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public class User
 {

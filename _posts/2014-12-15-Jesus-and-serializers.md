@@ -24,7 +24,7 @@ The case consists of serializing and deserializing a model _-which has a `DateTi
 
 # Model class
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public class Person
 {
@@ -43,7 +43,7 @@ We'll also need `Serialize` and `Deserialize` methods that are able to handle th
 
 # Serialize & Deserialize methods
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 static void Serialize(XmlObjectSerializer serializer, MemoryStream memoryStream, Person personToSerialize)
 {
@@ -61,7 +61,7 @@ static Person Deserialize(XmlObjectSerializer serializer, MemoryStream memoryStr
 
 Please note the **type** of `serializer` parameter in both of the methods. `XmlObjectSerializer` is the base class for both `DataContractJsonSerializer` and `DataContractSerializer` and they are defined like the following :
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public sealed class DataContractJsonSerializer : XmlObjectSerializer {}
 public sealed class DataContractSerializer : XmlObjectSerializer {}
@@ -79,7 +79,7 @@ public abstract class XmlObjectSerializer
 
 When we put it all together
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 static void Main(string[] args)
 {
@@ -120,7 +120,7 @@ var serializer = new DataContractJsonSerializer(typeof(Person));
 
 We re-run the program and **surprise!**
 
-{% highlight console linenos %}
+{% highlight console %}
 
 Unhandled Exception: System.Runtime.Serialization.SerializationException: DateTime values that are greater than DateTime.MaxValue or smaller than DateTime.MinValue when converted to UTC cannot be serialized to JSON. ---> System.ArgumentOutOfRangeException: Specified argument was out of the range of valid values.
 Parameter name: value

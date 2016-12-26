@@ -64,7 +64,7 @@ Once this extension is installed right click on **Data Connections** and chose
 
 ## 2 . Create a database using SQLiteConnection.CreateFile method
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 class Program
 {
     static void Main(string[] args)
@@ -80,7 +80,7 @@ To insist on the fact that the database is really nothing but a file
 _-as the name of the method suggests, no server behind, you have to get used to 
 it-_, here is how above method is implemented:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
  /// <summary>
  /// Creates a database file.  This just creates a zero-byte file which SQLite
  ///             will turn into a database when the file is opened properly.
@@ -98,7 +98,7 @@ it-_, here is how above method is implemented:
 
 This can be the most _disturbing_ part. Using SQLite, you can create a database by creating a connection and opening that connection. This is something that we can probably not imagine on _real_ database systems we have worked on.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 class Program
 {
     static void Main(string[] args)
@@ -121,7 +121,7 @@ a file when you are _reading it/writing to it_ isn't disturbing anymore is it? I
 recall, in .Net we can create a file while writing to it, if it doesn't exist. 
 Do you see the similarity?
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 using(var fs = File.Open(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
 {
     // use fs to do some task 
@@ -135,7 +135,7 @@ If you create your SQLite database using a tool (point 1 above), the database wi
 created in whatever folder you select. If you create your SQLite database using the API 
 however, there are a few subtle points. Let's create our database:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 // creating a database using CreateFile Method
 SQLiteConnection.CreateFile(@"TestDb1.s3db");
 
@@ -164,7 +164,7 @@ It is also valid to determine a complete path instead of only database name. Thi
 can control the location in which SQLite database will be created. The following code 
 snippet will create SQLite databases on `D:\` and not on the execution folder.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 // creating a database using CreateFile Method
 SQLiteConnection.CreateFile(@"d:\TestDb1.sql3db");
 

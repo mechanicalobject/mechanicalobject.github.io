@@ -13,7 +13,7 @@ following ugly tests :
 
 <!--more-->
 
-{% highlight csharp linenos%}
+{% highlight csharp %}
 
 [Test]
 public void TestStartDateProperty()
@@ -35,7 +35,7 @@ public void TestEndDateProperty()
 Now let's look @ their implementations. For StartDate attribute, I used "old fashioned" way and for 
 the EndDate, I used automatic properties.
 
-{% highlight xml linenos%}
+{% highlight xml %}
 
 public Budget(DateTime startDate, DateTime endDate)
 {

@@ -47,7 +47,7 @@ HubApp.Shared.projitems build target file, in the HubApp.Shared directory. This 
 logic and specify a relative path that works correctly with the XAML copying build step. Inside 
 the .projitems file you'll find the following code:
 
-{% highlight xml linenos %}
+{% highlight xml %}
 
 <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
     <SubType>Designer</SubType>
@@ -57,7 +57,7 @@ the .projitems file you'll find the following code:
 
 >Replace this with:
 
-{% highlight xml linenos %}
+{% highlight xml %}
 
 <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
     <SubType>Designer</SubType>

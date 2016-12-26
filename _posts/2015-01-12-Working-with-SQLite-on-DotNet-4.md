@@ -25,7 +25,7 @@ logic from data access logic. If, in a few months, I decide to transform the app
 LocalDb, there will be only one layer to write/modify. In the context of persisting `Todo` objects into SQLite 
 database, I created the following interface with its concrete implementation named `TodoRepository`.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public interface ITodoRepository
 {
@@ -57,7 +57,7 @@ var connectionString = ConfigurationManager.ConnectionStrings["TodoDatabase"].Co
 
 `ConfigurationWrapper` class is as simple as:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 public interface IConfigurationWrapper
 {
@@ -89,7 +89,7 @@ I know there are out there people who won't agree with me because of the indirec
 synonym to difficulty for some fellow -_ which this class will add. So why did I add it? The answer is: 
 **To be able to test repository class.** Let's look at the following code:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void CreateTodoTable()
 {     
      const string query = "...."; // query goes here
@@ -115,7 +115,7 @@ How can you test the case: **"When there is a problem with the connection, log t
 With the code above, you cannot because of the `new SQLiteConnection(connectionString)` . That's why 
 I added DatabaseConnectionFactory which generates SQL connection.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public interface IDatabaseConnectionFactory
 {
     IDbConnection GetNewSqlLiteConnection(string connectionString);
@@ -132,7 +132,7 @@ public class DatabaseConnectionFactory : IDatabaseConnectionFactory
 
 This one along with the others are injected into `TodoRepository` class:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public TodoRepository(IDatabaseConnectionFactory databaseConnectionFactory,
 					  IConfigurationWrapper configurationWrapper, 
 					  ILogger logger)
@@ -146,7 +146,7 @@ public TodoRepository(IDatabaseConnectionFactory databaseConnectionFactory,
 And the below test lets me verify the behavior of the method in case there is a problem while opening 
 the connection:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 [Test]
 public void CreateTodoTable_SystemShouldLogIfOpeningConnectionFails()
 {
@@ -197,7 +197,7 @@ The solution is to add an `app.config` in the solution and place the connection 
 for `config` and choose `Application Configuration File` 
 After having inserted `<connectionstrings></connectionstrings>` section, app.config looks like:
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <startup>
@@ -233,7 +233,7 @@ An ASP.NET application resolves |DataDirectory| to the "<application root="">/ap
 [In the previous article]({{ site.baseurl }}{% post_url 2015-01-09-Working-with-SQLite-on-DotNet-3 %}){:target="_blank"}, 
 I have written methods that realize CRUD operations but errors weren't handled properly. To refresh memories:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void CreateTodoTable()
 {     
      const string query = "...."; // query goes here
@@ -257,7 +257,7 @@ to that is that at the top level, probably there will be a catch using a generic
 
 I have gone with the first one and below the result:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public void CreateTodoTable()
 {
     const string query = "..." // query goes here
@@ -287,7 +287,7 @@ public void CreateTodoTable()
 The final issue I raised on [previous article]({{ site.baseurl }}{% post_url 2015-01-09-Working-with-SQLite-on-DotNet-3 %}){:target="_blank"} 
 was about missing guard clauses. Let's look at the following method as it was coded:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void UpdateTodoStatus(Todo todoToUpdate)
 {
     var query = "..." // query goes here 
@@ -306,7 +306,7 @@ void UpdateTodoStatus(Todo todoToUpdate)
 
 What happens if I execute this code block?
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 Todo todo = null;
 UpdateStatus(todo);
 {% endhighlight %}
@@ -326,7 +326,7 @@ In my opinion, the advantage of the first is that you can define the direction y
 If the argument expected by the method is null, isn't it better to throw `ArgumentNullException` instead 
 of the underlying exception which gives a more mysterious message? Here is the redesigned code:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public void UpdateTodoStatus(Todo todoToUpdate)
 {
     const string query = @"UPDATE Todo Set status=@status where id=@id";
@@ -372,7 +372,7 @@ public void UpdateTodoStatus(Todo todoToUpdate)
 Have you noticed that instead of using `updateCommand.Parameters.AddWithValue(...,...)` method I am 
 now using the following block ?:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 var statusParameter = command.CreateParameter();
 statusParameter.ParameterName = "@status";
 statusParameter.Value = (int) todoToUpdate.Status;
@@ -385,7 +385,7 @@ Repository class? Would it work _- except CreateTodoTable() method -_? :) That h
 I also created an extension method that'll gather 3 lines per parameter in to one method to have 
 a more readable code :
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public static class DbCommandExtensions
 {
     public static void AddParameterWithValue(this IDbCommand command, string parameterName, object value)

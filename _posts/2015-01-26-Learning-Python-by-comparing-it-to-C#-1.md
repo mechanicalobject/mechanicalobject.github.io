@@ -45,7 +45,7 @@ From <a href="" https:="" en.wikipedia.org="" wiki="" python_(programming_langua
 
 It seems complicated to put these languages into strict categories. There are some obvious differences like _interpreted vs compiled_. There are other points that are more hazy like _strong typing vs dynamic typing_ . The main confusing point is the vocabulary. For example, some say that C# is strongly typed language. Others say it is a statically typed language. I think these fellows want to say the same thing.
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 // all the types are already defined at compile time 
 int myInteger = 0;
 float myFloat = 0f;
@@ -57,7 +57,7 @@ var newVariable = myDecimal; //newVariable is a decimal
 
 But with the introduction of <a href="" https:="" msdn.microsoft.com="" en-us="" library="" dd264741.aspx""="">`dynamic` keyword</a>, this isn't very true anymore is it ? Let's give tiny example :
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 dynamic dynamicInt = 3;
 int myInt = 2; 
 object myObject = 8;

@@ -47,7 +47,7 @@ The basic idea is:
 use in in `WriteToServer` method. Here is a code snippet:
 
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 private void BulkInsert(List<YourModelClass> list)
 {

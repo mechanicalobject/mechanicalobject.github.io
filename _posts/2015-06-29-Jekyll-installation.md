@@ -47,7 +47,7 @@ The articles I used to build my blog on github pages :
 
 {% highlight md %}
 {% raw %}
-{% highlight csharp linenos%}
+{% highlight csharp %}
 // put your code here... 
 {% endhighlight %}
 {% endraw %}

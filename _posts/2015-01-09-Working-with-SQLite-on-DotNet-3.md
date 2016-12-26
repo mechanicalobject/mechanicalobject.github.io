@@ -33,7 +33,7 @@ Let's define a data context _-I am not talking about DataContext keyword that is
 
 Given the information above, I can create my model class like the following
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 public class Todo
 {
    public int Id {get;set;}
@@ -60,7 +60,7 @@ public enum TodoStatus
 
 To create data access layer for my application, I'll need following methods:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void CreateTodoTable(){}
 void AddNewTodo(Todo todoToAdd){}
 List<Todo> SelectAllTodos(){}
@@ -102,7 +102,7 @@ to our subject and try to define data type mappings for our `Todo` class:
 
 I sense a smell in the mapping for the Status column. Maybe in the future, I'll need to create a separate table and use id of this column in todo table to avoid hard coded conversions in the source code. Note that I simply expose my concerns about the limitations that the actual design may cause, I don't try over-engineer to be able to stay in the context and finish the exercise. By translating mapping table above to sql script, I get:
 
-{% highlight sql linenos %}
+{% highlight sql %}
 create table Todo
 (
   id int primary key, 
@@ -117,7 +117,7 @@ create table Todo
 
 Let's implement CreateTodoTable method:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void CreateTodoTable()
 {
      const string connectionString = @"Data Source=d:\Test.db3;Version=3;";
@@ -146,7 +146,7 @@ I will review all the code snippets to spot weak points.
 
 # Inserting data into the database
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 {
    ...
   var todo = new Todo()
@@ -185,7 +185,7 @@ Let's get someresults from database.
 
 # Selecting a result set from database
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 
 var allTodosInTheDatabase = SelectAllTodos();
 foreach (var todo in allTodosInTheDatabase)
@@ -236,7 +236,7 @@ Id : 1, Description = Finish pai..., Status = ToBeDone CreatedOn = 03/02/2010 00
 
 Now that we inserted a todo row into the database, let's change its status now:
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void UpdateTodoStatus(Todo todoToUpdate)
 {
     const string connectionString = @"Data Source=d:\Test.db3;Version=3;";
@@ -259,7 +259,7 @@ void UpdateTodoStatus(Todo todoToUpdate)
 
 The last thing to learn now to move forward is how to delete a record from the database
 
-{% highlight csharp linenos %}
+{% highlight csharp %}
 void DeleteTodo(Todo todoToDelete)
 {
     const string connectionString = @"Data Source=d:\Test.db3;Version=3;";

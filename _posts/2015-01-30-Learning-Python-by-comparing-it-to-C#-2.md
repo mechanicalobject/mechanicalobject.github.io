@@ -80,7 +80,7 @@ advanced topics , links to books and a complete language and library references.
 Files that contains Python source code has the ```.py``` extension. Every line of code is 
 executed except the comments.
 
-{% highlight python linenos %}
+{% highlight python %}
 
 // commented line
 
@@ -93,7 +93,7 @@ comment goes here
 {% endhighlight %}
 
 
-{% highlight python linenos %}
+{% highlight python %}
 
 # commented line
 

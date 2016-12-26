@@ -9,7 +9,7 @@ published : true
 ---
 Let's take one basic model
 
-{% highlight csharp linenos%}
+{% highlight csharp %}
 
 public class Person : ModelBase 
 {
@@ -41,7 +41,7 @@ to that in my opinion, it is not a good practice to create directly this kind of
 behaviors on `Object` class. Let's recall, **everything in .Net inherits from Object class.** So I 
 opted for the 2nd option but I might as well as go for the 1st. Here is the result :
 
-{% highlight csharp linenos%}
+{% highlight csharp %}
 
 internal static void Validate(this ModelBase model)
 {
@@ -70,7 +70,7 @@ of the property values is not confirm with the wanted validation behaviour _in o
 to roll, let's write the test. The goal will be make a statement using Validate() method, make it throw 
 an exception and test that.
 
-{% highlight csharp linenos%}
+{% highlight csharp %}
 
 [Test]
 public void FirstNameIsRequired()
