@@ -7,7 +7,9 @@ tagline:
 tags: [c#, garbage collector, programming, technical interview]
 published : true
 ---
-[In the previous article](http://blog.mechanicalobject.com/2014/12/10/technical-interview-questions-i-have-been-asked-1/) of the series on technical interview questions, I shared how my feelings for technical interviews changed as I advanced in my career. I also shared real-life technical questions I have been asked **frequently**. 
+In the [previous article]({{ site.baseurl }}{% post_url 2014-12-10-Technical-interview-Questions-I-have-been-asked-1 %}){:target="_blank"}, 
+of the series on technical interview questions, I shared how my feelings for technical interviews changed as I 
+advanced in my career. I also shared real-life technical questions I have been asked **frequently**. 
 
 <!--more-->
 
