@@ -13,7 +13,7 @@ The articles I used to build my blog on github pages :
 * [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/){:target="_blank"}
 
 
-## Useful commands
+## Most used commands
 * ``` jekyll serve --watch ```
 * ``` bundle install ``` 
 * ``` jekyll serve --watch --incremental ``` 
@@ -22,7 +22,7 @@ The articles I used to build my blog on github pages :
 * ``` bundle exec jekyll serve ``` 
 * ``` bundle clean --force ``` 
 
-## Useful mind dump
+## Most used shortcuts
 
 ### Create a link that opens on another tab 
 {% highlight md %}
@@ -42,6 +42,15 @@ The articles I used to build my blog on github pages :
 [Name of Link]({{ site.baseurl}} {% post_url 2015-01-09-Working-with-SQLite-on-DotNet-3 %}){:target="_blank"}
 {% endraw %}
 {% endhighlight %}
+
+### Create links between pages 
+
+{% highlight md %}
+{% raw %}
+[About page]({{ site.baseurl }}{% link about/index.md %}){:target="_blank"}
+{% endraw %}
+{% endhighlight %}
+
 
 ### Highlight code blocks
 

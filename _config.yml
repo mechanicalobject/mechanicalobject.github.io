@@ -31,6 +31,8 @@ navigation:
   url: /videos/
 - text: Books
   url: /books/
+- text: Music
+  url: /music/
 # Author Details
 author:         'Mechanical Object'
 
