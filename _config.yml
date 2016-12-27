@@ -27,7 +27,8 @@ navigation:
   url : /archive/
 - text: Links
   url: /links/
-
+- text: Videos
+  url: /videos/
 # Author Details
 author:         'Mechanical Object'
 
