@@ -7,6 +7,9 @@ tagline:
 tags: [.net, c#, github, programming, sqllite]
 published : true
 ---
+
+Here is the final article of SQLite series. 
+
 <!--more-->
 
 # SQLite Limits
@@ -15,6 +18,8 @@ I don't expect you to read entirely but at least take a look at
 [these notes](https://www.sqlite.org/limits.html){:target="_blank"}
 It is important to know limitations of the tool you are using. This may also affect your choice regarding the 
 tool you'll use in your project.
+
+
 
 # Optimizing performances
 

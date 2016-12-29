@@ -7,12 +7,11 @@ tagline:
 tags: [blog, markdown, stackedit, writing articles]
 published : true
 ---
-
-**THIS POST WAS WRITTEN WHEN I WAS USING WORDPRESS TO HOST MY BLOG**
-
 As I shared with you in [About page]({{ site.baseurl }}{% link about/index.md %}){:target="_blank"},
 I am using [Markdown](http://daringfireball.net/projects/markdown/){:target="_blank"} for 
 this blog. 
+
+**DISCLAIMER !: THIS POST WAS WRITTEN WHEN I WAS USING WORDPRESS TO HOST MY BLOG**
 
 <!--more-->
 

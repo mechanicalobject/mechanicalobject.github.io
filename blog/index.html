@@ -19,6 +19,10 @@ theme: darken
               {{ post.title }}
             </a>
           </h2>
+          
+          {{ post.excerpt | strip_html }}
+
+
           <div class="publish-tag">
             <span class="fa fa-calendar"></span>&nbsp;PUBLISHED ON {{ post.date | date: "%B %d, %Y" }}
           </div>
