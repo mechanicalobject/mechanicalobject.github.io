@@ -10,7 +10,8 @@ published : false
 http://stackoverflow.com/questions/16276049/autofac-how-to-intercept-the-service-with-an-instance-of-a-aspect-but-not-with
 
 """"
-Check out the Autofac wiki page on Autofac.Extras.DynamicProxy2. It shows an example of a CallLogger interceptor where it registers a lambda as the interceptor:
+Check out the Autofac wiki page on Autofac.Extras.DynamicProxy2. It shows an example of a CallLogger 
+interceptor where it registers a lambda as the interceptor:
 
 var builder = new ContainerBuilder(); 
 builder.RegisterType<SomeType>()
@@ -42,6 +43,7 @@ builder.RegisterInstance(interceptor)
        .Named<IInterceptor>("my-aspect-instance");
 var container = builder.Build();
 var willBeIntercepted = container.Resolve<ISomeInterface>();
-Again, check out the wiki - there are lots of ways to associate the interceptor with the class being intercepted, including named, typed, attributes... lots of samples on the wiki.
+Again, check out the wiki - there are lots of ways to associate the interceptor with the class being intercepted, 
+including named, typed, attributes... lots of samples on the wiki.
 
 """
