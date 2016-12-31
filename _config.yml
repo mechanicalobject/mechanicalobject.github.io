@@ -14,6 +14,7 @@ description:      'Programming, algorithms, life etc.'
 url:              'http://mechanicalobject.com'
 #url:              'http://127.0.0.1:4000/'
 baseurl:          ''
+author:           'Mechanical Object'
 
 # Navigation
 navigation:
@@ -33,8 +34,6 @@ navigation:
   url: /books/
 - text: Music
   url: /music/
-# Author Details
-author:         'Mechanical Object'
 
 #Social Media links (Use complete URL except for email)
 dribbble:
@@ -65,5 +64,13 @@ paginate: 10 # Posts per page on the blog index
 paginate_path: '/blog/page:num'
 destination: ./_site
 
+# Feed 
+feed:
+  path: atom.xml
+
 # Custom vars
 version:          0.9x beta 2 (custom)
+
+# Gems
+gems:
+  - jekyll-feed

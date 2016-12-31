@@ -4,3 +4,5 @@ gem 'jekyll'
 gem 'jekyll-paginate', group: :jekyll_plugins
 gem 'wdm'
 gem 'pygments.rb'
+gem 'github-pages'      
+gem 'jekyll-feed'
