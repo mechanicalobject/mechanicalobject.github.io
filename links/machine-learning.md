@@ -83,6 +83,7 @@ Here you'll find links to useful resources on machine learning.
 |Article name|Notes|
 |:--|:--|
 |<a href="http://vudlab.com/simpsons/" target="_blank">Simpson's Paradox</a>||
+|[Deep learning weekly](http://www.deeplearningweekly.com/){:target="_blank"} ||
 
 ## **Where to get data?**
 
