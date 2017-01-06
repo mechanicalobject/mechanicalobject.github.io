@@ -21,3 +21,5 @@ From [the github readme page](https://github.com/nlkl/Optional/blob/master/READM
 >   *   Avoid those pesky null-reference exceptions
 >   *   Signal intent and model your data more explictly
 >   *   Cut down on manual null checks and focus on your domain
+
+**Bonus** : Eric Lippert wrote a [series of 13 articles](https://ericlippert.com/category/monads/){:target="_blank"} on Monads.
