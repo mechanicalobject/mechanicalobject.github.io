@@ -2,7 +2,7 @@
 layout: post
 author : Mechanical Object
 category: Article
-title: Maybe monad in C# : Optional
+title: Maybe monad in C# Optional
 tagline: 
 tags: [functional programming, maybe, monad, optional, c#, library]
 published : true
