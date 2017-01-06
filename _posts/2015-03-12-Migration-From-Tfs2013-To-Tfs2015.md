@@ -10,6 +10,8 @@ published : true
 
 Here is the protocol that I applied to migrate our tfs 2013 to tfs 2015.
 
+<!--more-->
+
 ## Important 
 
 1. The protocol is only tested to migrate 
