@@ -5,7 +5,7 @@ category: Article
 title: Maybe monad in C# : Optional
 tagline: 
 tags: [functional programming, maybe, monad, optional, c#, library]
-published
+published : true
 --- 
 
 We began to have "craftmanship" meetups (private for the moment) at work. My colleague presented a C# library 
