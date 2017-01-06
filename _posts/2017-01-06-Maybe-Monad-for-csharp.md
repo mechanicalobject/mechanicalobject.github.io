@@ -9,6 +9,8 @@ published : true
 --- 
 
 We began to have "craftmanship" meetups (private for the moment) at work. My colleague presented a C# library 
+<!--more-->
+
 that implements Maybe [monad](https://en.wikipedia.org/wiki/Monad_(functional_programming)){:target="_blank"} named 
 [Optional](https://github.com/nlkl/Optional){:target="_blank"}.
 
