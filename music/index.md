@@ -15,3 +15,5 @@ Below musicians that I love to listen to, great stuff!
 ## Lee Morgan
 * [Selection of youtube videos]({{ site.baseurl }}{% link music/lee-morgan.md %}){:target="_blank"}
 
+## Miles Davis
+* [Selection of youtube videos]({{ site.baseurl }}{% link music/miles-davis.md %}){:target="_blank"}
