@@ -11,6 +11,8 @@ published : true
 I lost the context menu entries for TFS which are quite handy aspecially when you 
 want to add multiple files.
 
+<!--more-->
+
 I found [the answer on SO](http://stackoverflow.com/q/10442099){:target="_blank"}
 
 * Open the registry
