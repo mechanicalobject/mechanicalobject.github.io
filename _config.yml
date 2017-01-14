@@ -63,7 +63,7 @@ excerpt_separator: '<!--more-->'
 paginate: 10 # Posts per page on the blog index
 paginate_path: '/blog/page:num'
 destination: ./_site
-
+future: false
 # Feed 
 feed:
   path: atom.xml

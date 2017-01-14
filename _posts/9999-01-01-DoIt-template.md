@@ -8,6 +8,10 @@ tags: [links, terms, contract, spell check, deep learning, benchmark, .net, c#]
 published : false
 --- 
 
+Links to interesting things I discover...
+
+<!--more-->
+
 ### 1. [](){:target="_blank"}
 
 > excerpt goes here 
