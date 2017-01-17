@@ -8,7 +8,7 @@ tags: [tfs, context menu, registry, windows]
 published : true
 --- 
 
-I lost the context menu entries for TFS which are quite handy aspecially when you 
+I lost the context menu entries for TFS which are quite handy especially when you 
 want to add multiple files.
 
 <!--more-->
