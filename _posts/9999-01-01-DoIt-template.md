@@ -5,7 +5,7 @@ category: Article
 title: DoIt (Discovery of interesting things) - 1
 tagline: 
 tags: [links]
-published : true
+published : false
 --- 
 
 Links to interesting things I discover...
