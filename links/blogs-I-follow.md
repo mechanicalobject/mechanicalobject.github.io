@@ -8,6 +8,7 @@ theme: darken
 
 |Blog name| Rss Feed | Notes |
 |:--|:--|
+|[Joe Duffy's Blog](http://joeduffyblog.com/2016/11/30/15-years-of-concurrency/){:target="_blank"} | [RSS Feed](http://joeduffyblog.com/feed.xml){:target="_blank"} ||
 |[Developer Tools Blogs](https://blogs.msdn.microsoft.com/developer-tools/){:target="_blank"} | [RSS Feed](http://sxp.microsoft.com/feeds/3.0/devblogs){:target="_blank"} ||
 |[An everyday .NET developers blog](){:target="_blank"} | [RSS Feed](http://kampeki-factory.blogspot.com/feeds/posts/default){:target="_blank"} ||
 |[Channel 9](){:target="_blank"} | [RSS Feed](https://channel9.msdn.com/Feeds/RSS){:target="_blank"}||
