@@ -8,6 +8,7 @@ theme: darken
 
 |Blog name| Rss Feed | Notes |
 |:--|:--|
+|[Developer Tools Blogs](https://blogs.msdn.microsoft.com/developer-tools/){:target="_blank"} | [RSS Feed](http://sxp.microsoft.com/feeds/3.0/devblogs){:target="_blank"} ||
 |[An everyday .NET developers blog](){:target="_blank"} | [RSS Feed](http://kampeki-factory.blogspot.com/feeds/posts/default){:target="_blank"} ||
 |[Channel 9](){:target="_blank"} | [RSS Feed](https://channel9.msdn.com/Feeds/RSS){:target="_blank"}||
 |[Charles Petzold](){:target="_blank"}|[RSS Feed](http://www.charlespetzold.com/rss.xml){:target="_blank"}||
