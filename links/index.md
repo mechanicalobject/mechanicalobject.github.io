@@ -10,7 +10,7 @@ theme: darken
 * [Jto](https://jtourvieille.github.io/){:target="_blank"} 
 * [Lg](http://www.lgmorand.com/){:target="_blank"}
 * [Mr Finel](http://www.macreiben.net/){:target="_blank"}
-* [Manuel](http://manuel-guilbault.blogspot.fr/){:target="_blank"}
+* [Manuel](http://manuelguilbault.com/){:target="_blank"}
 
 ## **Resources per topic**
 
