@@ -8,7 +8,7 @@ tags: [package sender, tcp, udp, network, elk, kibana, logstash, elastic search]
 published : true
 --- 
 
-Today I discovered/used [Packet Sender](https://protocollp.azurewebsites.net/page/OfficeCollection/){:target="_blank"};**a simple, easy-to-use tool to send/receive udp and tcp packages**,
+Today I discovered/used [Packet Sender](https://packetsender.com/){:target="_blank"};**a simple, easy-to-use tool to send/receive udp and tcp packages**,
 while debugging ELK Stack logging issue.
 
 Highly recommended! :)
