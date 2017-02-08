@@ -13,7 +13,7 @@ while debugging ELK Stack logging issue.
 
 Highly recommended! :)
 
-[Packet Sender 01](http://i.imgur.com/odpNpk3.png)
+![Packet Sender 01](http://i.imgur.com/odpNpk3.png)
 
-[Packet Sender 02](http://i.imgur.com/klveBX9.png)
+![Packet Sender 02](http://i.imgur.com/klveBX9.png)
 
