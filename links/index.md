@@ -11,6 +11,7 @@ theme: darken
 * [Lg](http://www.lgmorand.com/){:target="_blank"}
 * [Mr Finel](http://www.macreiben.net/){:target="_blank"}
 * [Manuel](http://manuelguilbault.com/){:target="_blank"}
+* [Marc](https://havefuncoding.wordpress.com/){:target="_blank"}
 
 ## **Resources per topic**
 
