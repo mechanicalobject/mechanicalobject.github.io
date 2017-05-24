@@ -24,7 +24,7 @@ layout: master
         <span class="fa fa-tag"></span>Tags:
         {% if page.tags %}
           {% for tag in page.tags %}
-            <a href="#{{ tag | slugify }}"> 
+            <a href="/tags/index.html#{{ tag | slugify }}"> 
                         {{ tag | first }}&nbsp;
                         <span class="label label-primary">
                             {{ tag }}

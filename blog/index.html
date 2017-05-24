@@ -29,7 +29,7 @@ theme: darken
             <div class="tags">
             {% if post.tags %}
             {% for tag in post.tags %}
-              <a href="#{{ tag | slugify }}"> 
+              <a href="/tags/index.html#{{ tag | slugify }}"> 
                         {{ tag | first }}&nbsp;
                         <span class="label btn-orange">
                             {{ tag }}
