@@ -29,11 +29,12 @@ theme: darken
             <div class="tags">
             {% if post.tags %}
             {% for tag in post.tags %}
-              {% if tag == 'C#'%}
-                <a href="/tags/index.html#{{tag}}"><span class="label btn-orange">{{tag}}</span></a>
-              {% else %}
-                <a href="/tags/index.html#{{tag}}"><span class="label btn-orange">{{tag}}</span></a>
-              {% endif %}
+              <a href="#{{ tag[0] | slugify }}"> 
+                        {{ tag | first }}&nbsp;
+                        <span class="label btn-orange">
+                            {{ tag | last | size}}
+                        </span>
+                    </a>
             {% endfor %}
           {% else %}
             None
