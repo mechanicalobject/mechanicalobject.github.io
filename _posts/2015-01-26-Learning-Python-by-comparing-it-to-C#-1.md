@@ -4,7 +4,7 @@ author : Mechanical Object
 category: Article
 title: Learning Python by comparing it to C#-1
 tagline: 
-tags: [c#,programming,programming,python,python]
+tags: [c#,programming,programming,python]
 published : false
 --- 
 "I decided to learn Python. Multiple reasons :

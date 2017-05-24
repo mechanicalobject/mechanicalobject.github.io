@@ -4,7 +4,7 @@ author : Mechanical Object
 category: Article
 title: Learning Python by comparing it to C#-2
 tagline: 
-tags: [c#,programming,programming,python,python]
+tags: [c#,programming,programming,python]
 published : false
 --- 
 "<a href="" http:="" blog.mechanicalobject.com="" 2015="" 01="" 25="" learning-python-by-comparing-it-to-csharp-1""="">In the previous article</a>, I shared the reason of my motivation and made a **failed** attempt to categorize languages to better define the context. I need a roadmap. This roadmap can slightly change by digging deeper if subjects gets my attention, but the skeleton of the roadmap should stay still.
