@@ -32,7 +32,7 @@ theme: darken
               <a href="#{{ tag | slugify }}"> 
                         {{ tag | first }}&nbsp;
                         <span class="label btn-orange">
-                            {{ tag | last | size}}
+                            {{ tag }}
                         </span>
                     </a>
             {% endfor %}

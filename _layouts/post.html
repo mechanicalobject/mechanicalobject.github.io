@@ -27,7 +27,7 @@ layout: master
             <a href="#{{ tag | slugify }}"> 
                         {{ tag | first }}&nbsp;
                         <span class="label label-primary">
-                            {{ tag | last | size}}
+                            {{ tag }}
                         </span>
                     </a>
           {% endfor %}
