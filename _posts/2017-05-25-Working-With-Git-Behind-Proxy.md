@@ -4,10 +4,10 @@ author : Mechanical Object
 category: Article
 title: Working with git behind a proxy
 tagline: 
-tags: [links]
-published : false
+tags: [git, proxy]
+published : true
 --- 
-Scenario : Working for a client behind the client proxy 
+Scenario : Working for a client behind the client proxy , you need to access to some repositories on github and you have also on premises source controller with internal repos.
 
 <!--more-->
 
