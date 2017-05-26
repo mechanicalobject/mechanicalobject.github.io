@@ -10,7 +10,7 @@ published : true
 
 After I updated VS 2017, I opened my solution and the code was unreadable because of strange text colors that did not belong to original dark theme.
 
-I looked up for this issue on the internet, it seems folks had [the same problem](https://msdn.microsoft.com/en-us/library/ff963553.aspx){:target="_blank"}
+I looked up for this issue on the internet, it seems folks had [the same problem](https://github.com/Microsoft/visualfsharp/issues/2555){:target="_blank"}
 
 The following steps indicated in the discussions seems to solve the problem : 
 
