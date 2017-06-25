@@ -24,7 +24,7 @@ The case consists of serializing and deserializing a model _-which has a `DateTi
 
 # Model class
 
-{% highlight csharp %}
+```csharp
 
 public class Person
 {
@@ -36,7 +36,7 @@ public class Person
         return string.Format("{0} was born on {1}", Name, Birthday.ToString("yyyy-MM-dd hh:mm:ss"));
     }
 }
-{% endhighlight %}
+```
 
 
 We'll also need `Serialize` and `Deserialize` methods that are able to handle the model I defined above:
